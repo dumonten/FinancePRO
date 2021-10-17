@@ -11,7 +11,16 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+plugins {
+  id "org.sonarqube" version "3.3"
+}
+sonarqube {
+  properties {
+    property "sonar.projectKey", "dumonten_FinancePRO"
+    property "sonar.organization", "dumonten"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
 allprojects {
     repositories {
         google()
