@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 public class DbHelper extends SQLiteOpenHelper {
@@ -20,8 +21,6 @@ public class DbHelper extends SQLiteOpenHelper {
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_ANS + " TEXT,"
             + COLUMN_QUES + " TEXT);";
-
-
     public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -29,6 +28,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_ANS);
+
     }
 
     @Override
@@ -36,6 +36,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+USER_ANS);
         onCreate(db);
     }
+
 
     public void addAnswers (String questions, String answers){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -47,9 +48,8 @@ public class DbHelper extends SQLiteOpenHelper {
         Log.d (TAG, "answered questions - "+id+answers);
     }
 
-    public boolean getAnswers (String questions, String answers){
-        String selectQuery = "select * from  " + USER_ANS + " where " +
-                COLUMN_QUES + " = " + "'"+questions+"'"+" and " + COLUMN_ANS + " = " +
+    public boolean getAnswers (String answers){
+        String selectQuery = "select * from  " + USER_ANS + " where "+ COLUMN_ANS + " = " +
                 "'"+answers+"'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
