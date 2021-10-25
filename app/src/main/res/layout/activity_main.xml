@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="200dp"
-        android:text="А вот тут будет приложение!"
+        android:text="А здесь будет приложение!"
         android:textColor="@color/white"
         android:textSize="25sp" />
 
