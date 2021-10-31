@@ -6,21 +6,34 @@
     android:layout_width="match_parent"
     tools:context=".MainActivity"
     android:layout_height="match_parent"
-    android:background="@color/orange">
+    android:background="@color/white" >
 
-
+    <!-- Up to change text if needed -->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="200dp"
-        android:text="А вот тут будет приложение!"
-        android:textColor="@color/white"
+        android:layout_marginTop="150dp"
+        android:text="Главное меню"
+        android:fontFamily="monospace"
+        android:textColor="@color/black"
         android:textSize="25sp" />
 
-
-
+    <Button
+        android:id="@+id/toTime"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/name"
+        android:layout_marginBottom="98dp"
+        android:text="Статистика"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="monospace"
+        android:textStyle="bold" />
 
 </RelativeLayout>

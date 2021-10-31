@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Anotherversion">
-
-
+        <activity
+            android:name=".TimeIntervals"
+            android:theme="@style/Theme.AnotherversionWithActionVar"
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".ControlQuestions" />
         <activity android:name=".CheckAns" />
         <activity android:name=".SplashActivity">
@@ -18,7 +21,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".EnterPassword" />
         <activity android:name=".CreatePassword" />
