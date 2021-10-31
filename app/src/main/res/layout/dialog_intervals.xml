@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Intervals"
+        android:textSize="20sp"
+        android:fontFamily="monospace"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/bDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:text="Day"
+        android:textColor="@color/black"
+        android:layout_toLeftOf="@id/bWeek"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/tDay"/>
+
+    <Button
+        android:id="@+id/bWeek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:text="Week"
+        android:textColor="@color/black"
+        android:layout_below="@id/tDay"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/bMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:text="Month"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/bWeek"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/tDay"/>
+
+
+
+</RelativeLayout>

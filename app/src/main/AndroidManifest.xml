@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Anotherversion">
         <activity
-            android:name=".TimeIntervals"
+            android:name=".StatisticsActivity"
             android:theme="@style/Theme.AnotherversionWithActionVar"
             android:exported="true"
             android:parentActivityName=".MainActivity"/>
