@@ -11,12 +11,12 @@
         android:theme="@style/Theme.Anotherversion">
         <activity
             android:name=".CategoriesActivity"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AnotherversionWithActionVar" />
         <activity
             android:name=".StatisticsActivity"
-            android:exported="true"
+            android:exported="false"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AnotherversionWithActionVar" />
         <activity android:name=".ControlQuestions" />
