@@ -6,9 +6,8 @@
     android:layout_width="match_parent"
     tools:context=".StatisticsActivity"
     android:layout_height="match_parent"
-    android:background="@color/orange">
+    android:background="@color/white">
 
-    <!-- Up to change text if needed -->
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"

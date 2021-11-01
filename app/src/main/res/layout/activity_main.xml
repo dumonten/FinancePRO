@@ -22,16 +22,43 @@
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/toTime"
+        android:id="@+id/toStatistics"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:layout_below="@id/name"
-        android:layout_marginBottom="98dp"
         android:text="Статистика"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:layout_marginTop="27dp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="monospace"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/toCategories"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@id/toStatistics"
+        android:text="Категории"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="monospace"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/toExit"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_below="@id/toCategories"
+        android:text="Выход"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="37dp"
         android:backgroundTint="@color/orange"
         android:fontFamily="monospace"
         android:textStyle="bold" />

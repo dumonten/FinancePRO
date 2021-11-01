@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnStat, btnDay, btnWeek, btnMonth;
-    Dialog dialog;
+    Button btnStat, btnCat, btnExit, btnDay, btnWeek, btnMonth, btnExYes, btnExNo;
+    Dialog dialog, confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +21,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dialog = new Dialog(MainActivity.this);
+        confirm = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.dialog_intervals);
+        confirm.setContentView(R.layout.confirm_exit);
+        confirm.setCancelable(false);
 
-        btnStat = (Button) findViewById(R.id.toTime);
+        btnStat = (Button) findViewById(R.id.toStatistics);
+        btnCat = (Button) findViewById(R.id.toCategories);
+        btnExit = (Button) findViewById(R.id.toExit);
         btnDay = (Button) dialog.findViewById(R.id.bDay);
         btnWeek = (Button) dialog.findViewById(R.id.bWeek);
         btnMonth = (Button) dialog.findViewById(R.id.bMonth);
+        btnExYes = (Button) confirm.findViewById(R.id.exitYes);
+        btnExNo = (Button) confirm.findViewById(R.id.exitNo);
 
         btnStat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +66,35 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "You've chosen 'Month'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirm.show();
+            }
+        });
+
+        btnExYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.exit(0);
+            }
+        });
+
+        btnExNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirm.dismiss();
             }
         });
     }

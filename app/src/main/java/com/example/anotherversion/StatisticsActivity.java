@@ -10,6 +10,6 @@ public class StatisticsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-        getSupportActionBar().setTitle(" ");
+        getSupportActionBar().setTitle("Статистика");
     }
 }
