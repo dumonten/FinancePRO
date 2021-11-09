@@ -10,68 +10,79 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ControlQuestions extends AppCompatActivity implements View.OnClickListener{
+public class ControlQuestions extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView quest1,quest2,quest3;
+    private TextView quest1, quest2, quest3;
     private Button btnNext;
-    private EditText etAns1,etAns2,etAns3;
+    private EditText etAns1, etAns2, etAns3;
     private DbHelper db;
-    boolean ans1,ans2, ans3;
+    private boolean check_ans1, check_ans2, check_ans3;
+    private String ques1, ques2, ques3, ans1, ans2, ans3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control_questions);
-        ans1= true; ans2=true; ans3 = true;
         quest1 = (TextView) findViewById(R.id.quest1);
         quest2 = (TextView) findViewById(R.id.quest2);
         quest3 = (TextView) findViewById(R.id.quest3);
-        etAns1 = (EditText)findViewById(R.id.etAns1);
-        etAns2 = (EditText)findViewById(R.id.etAns2);
-        etAns3 = (EditText)findViewById(R.id.etAns3);
-        btnNext = (Button)findViewById(R.id.btnNext);
+        etAns1 = (EditText) findViewById(R.id.etAns1);
+        etAns2 = (EditText) findViewById(R.id.etAns2);
+        etAns3 = (EditText) findViewById(R.id.etAns3);
+        btnNext = (Button) findViewById(R.id.btnNext);
         db = new DbHelper(this);
         btnNext.setOnClickListener(this);
     }
-    private void save1 (){
-        String ques = quest1.getText().toString();
-        String ans = etAns1.getText().toString();
-        if (ans.isEmpty() && ques.isEmpty()){
-            ans1=false;
+
+    private void check1() {
+        ques1 = quest1.getText().toString();
+        ans1 = etAns1.getText().toString();
+        if (ans1.isEmpty()) {
+            check_ans1 = false;
         } else {
-            db.addAnswers(ques,ans);
-            finish();
+            check_ans1 = true;
         }
     }
-    private void save2 (){
-        String ques = quest2.getText().toString();
-        String ans = etAns2.getText().toString();
-        if (ans.isEmpty() && ques.isEmpty()){
-            ans2=false;
+
+    private void check2() {
+        ques2 = quest2.getText().toString();
+        ans2 = etAns2.getText().toString();
+        if (ans2.isEmpty()) {
+            check_ans2 = false;
         } else {
-            db.addAnswers(ques,ans);
-            finish();
+            check_ans2 = true;
         }
     }
-    private void save3 (){
-        String ques = quest3.getText().toString();
-        String ans = etAns3.getText().toString();
-        if (ans.isEmpty() && ques.isEmpty()){
-           ans3=false;
+
+    private void check3() {
+        ques3 = quest3.getText().toString();
+        ans3 = etAns3.getText().toString();
+        if (ans3.isEmpty()) {
+            check_ans3 = false;
         } else {
-            db.addAnswers(ques,ans);
-            finish();
+            check_ans3 = true;
         }
+    }
+
+    private void save_all() {
+        db.addAnswers(ques1, ans1);
+        db.addAnswers(ques2, ans2);
+        db.addAnswers(ques3, ans3);
+        finish();
     }
 
     @Override
     public void onClick(View v) {
-        save1();
-        save2();
-        save3();
-        if (!ans1 && !ans2 && !ans3){
-            Toast.makeText(getApplicationContext(),"Вы не ответили на вопрос!",Toast.LENGTH_SHORT).show();
+        check1();
+        check2();
+        check3();
+        if ((check_ans1 == false) || (check_ans2 == false) || (check_ans3 == false)) {
+                Toast.makeText(getApplicationContext(), "Вы не ответили на вопрос!", Toast.LENGTH_SHORT).show();
+            }
+        if ((check_ans1 == true) && (check_ans2 == true) && (check_ans3 == true)) {
+            save_all();
+            startActivity(new Intent(ControlQuestions.this, MainActivity.class));
+            finish();
         }
-        startActivity(new Intent(ControlQuestions.this, MainActivity.class));
-        finish();
     }
 }
