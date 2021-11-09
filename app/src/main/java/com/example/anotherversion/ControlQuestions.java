@@ -45,29 +45,24 @@ public class ControlQuestions extends AppCompatActivity implements View.OnClickL
         btnNext.setOnClickListener(this);
     }
 
-    private void check1() {
+    private void check() {
         ques1 = quest1.getText().toString();
         ans1 = etAns1.getText().toString();
+        ques2 = quest2.getText().toString();
+        ans2 = etAns2.getText().toString();
+        ques3 = quest3.getText().toString();
+        ans3 = etAns3.getText().toString();
+
         if (ans1.isEmpty()) {
             checkAns1 = false;
         } else {
             checkAns1 = true;
         }
-    }
-
-    private void check2() {
-        ques2 = quest2.getText().toString();
-        ans2 = etAns2.getText().toString();
         if (ans2.isEmpty()) {
             checkAns2 = false;
         } else {
             checkAns2 = true;
         }
-    }
-
-    private void check3() {
-        ques3 = quest3.getText().toString();
-        ans3 = etAns3.getText().toString();
         if (ans3.isEmpty()) {
             checkAns3 = false;
         } else {
@@ -84,9 +79,7 @@ public class ControlQuestions extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        check1();
-        check2();
-        check3();
+        check();
         if (!checkAns1 || !checkAns2 || !checkAns3) {
                 Toast.makeText(getApplicationContext(), "Вы не ответили на вопрос!", Toast.LENGTH_SHORT).show();
             }
