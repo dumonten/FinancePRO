@@ -12,12 +12,23 @@ import android.widget.Toast;
 
 public class ControlQuestions extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView quest1, quest2, quest3;
+    private TextView quest1;
+    private TextView quest2;
+    private TextView quest3;
     private Button btnNext;
-    private EditText etAns1, etAns2, etAns3;
+    private EditText etAns1;
+    private EditText etAns2;
+    private EditText etAns3;
     private DbHelper db;
-    private boolean check_ans1, check_ans2, check_ans3;
-    private String ques1, ques2, ques3, ans1, ans2, ans3;
+    private boolean checkAns1;
+    private boolean checkAns2;
+    private boolean checkAns3;
+    private String ques1;
+    private String ques2;
+    private String ques3;
+    private String ans1;
+    private String ans2;
+    private String ans3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +49,9 @@ public class ControlQuestions extends AppCompatActivity implements View.OnClickL
         ques1 = quest1.getText().toString();
         ans1 = etAns1.getText().toString();
         if (ans1.isEmpty()) {
-            check_ans1 = false;
+            checkAns1 = false;
         } else {
-            check_ans1 = true;
+            checkAns1 = true;
         }
     }
 
@@ -48,9 +59,9 @@ public class ControlQuestions extends AppCompatActivity implements View.OnClickL
         ques2 = quest2.getText().toString();
         ans2 = etAns2.getText().toString();
         if (ans2.isEmpty()) {
-            check_ans2 = false;
+            checkAns2 = false;
         } else {
-            check_ans2 = true;
+            checkAns2 = true;
         }
     }
 
@@ -58,13 +69,13 @@ public class ControlQuestions extends AppCompatActivity implements View.OnClickL
         ques3 = quest3.getText().toString();
         ans3 = etAns3.getText().toString();
         if (ans3.isEmpty()) {
-            check_ans3 = false;
+            checkAns3 = false;
         } else {
-            check_ans3 = true;
+            checkAns3 = true;
         }
     }
 
-    private void save_all() {
+    private void saveAll() {
         db.addAnswers(ques1, ans1);
         db.addAnswers(ques2, ans2);
         db.addAnswers(ques3, ans3);
@@ -76,11 +87,11 @@ public class ControlQuestions extends AppCompatActivity implements View.OnClickL
         check1();
         check2();
         check3();
-        if ((check_ans1 == false) || (check_ans2 == false) || (check_ans3 == false)) {
+        if (!checkAns1 || !checkAns2 || !checkAns3) {
                 Toast.makeText(getApplicationContext(), "Вы не ответили на вопрос!", Toast.LENGTH_SHORT).show();
             }
-        if ((check_ans1 == true) && (check_ans2 == true) && (check_ans3 == true)) {
-            save_all();
+        if (checkAns1 && checkAns2 && checkAns3) {
+            saveAll();
             startActivity(new Intent(ControlQuestions.this, MainActivity.class));
             finish();
         }
