@@ -20,43 +20,23 @@
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <LinearLayout
-        android:id="@+id/cat_layout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/CatView"
         android:layout_width="match_parent"
-        android:layout_height="448dp"
+        android:layout_height="447dp"
         android:layout_below="@id/cat_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp">
+        android:layout_marginTop="15dp">
 
-        <Button
-            android:id="@+id/cat_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="Доходы" />
-
-        <Button
-            android:id="@+id/cat_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="Удалённые" />
-
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/cat_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/cat_layout"
+        android:layout_below="@id/CatView"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="clip_horizontal"
         android:text="@string/cat_btn_add"
         android:textSize="25dp" />
-
 </RelativeLayout>

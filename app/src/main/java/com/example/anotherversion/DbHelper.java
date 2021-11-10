@@ -8,6 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.ContactsContract;
 import android.util.Log;
 
+import com.example.anotherversion.modal.Category;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DbHelper extends SQLiteOpenHelper {
 
     /* Main Settings */
@@ -22,10 +27,10 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_ANS ="answers";
     public static final String COLUMN_QUES ="questions";
-    public static final String CREATE_TABLE_ANS = "CREATE TABLE " + USER_ANS + "("
-            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + COLUMN_ANS + " TEXT,"
-            + COLUMN_QUES + " TEXT);";
+    public static final String CREATE_TABLE_ANS = "CREATE TABLE `" + USER_ANS + "` (`"
+            + COLUMN_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
+            + COLUMN_ANS + "` TEXT, `"
+            + COLUMN_QUES + "` TEXT);";
 
     // Categories romchonsh
     public static final String TABLE_CAT ="cat";
@@ -73,7 +78,7 @@ public class DbHelper extends SQLiteOpenHelper {
         try {
             db = this.getReadableDatabase();
             cursor = db.rawQuery(selectQuery, null);
-            if (cursor.getCount()>0) {
+            if (cursor.getCount() > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -84,6 +89,33 @@ public class DbHelper extends SQLiteOpenHelper {
         }
 
         return  false;
+    }
+
+    public List getCategories()
+    {
+        List<Category> categoryList = new ArrayList<>();
+        String selectQuery = "SELECT * FROM `" + TABLE_CAT + "`";
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = this.getReadableDatabase();
+            cursor = db.rawQuery(selectQuery, null);
+
+            // Проходим через все ряды
+            while (cursor.moveToNext()) {
+                // Используем индекс для получения строки или числа
+                int currentID = cursor.getInt(0);
+                String currentName = cursor.getString(1);
+                categoryList.add(new Category(currentID, currentName));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            cursor.close();
+            db.close();
+        }
+
+        return categoryList;
     }
 
     /* ================== */

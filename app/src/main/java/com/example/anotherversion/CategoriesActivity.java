@@ -1,6 +1,8 @@
 package com.example.anotherversion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -9,6 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.anotherversion.adapter.CategoryAdapter;
+import com.example.anotherversion.modal.Category;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CategoriesActivity extends AppCompatActivity {
@@ -17,13 +24,19 @@ public class CategoriesActivity extends AppCompatActivity {
     Dialog confirm;
     private DbHelper db;
 
+    RecyclerView categoryRecycler;
+    CategoryAdapter categoryAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Категории");
-
         db = new DbHelper(this);
+
+        List<Category> categoryList = db.getCategories();
+        setCategoryRecycler(categoryList);
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Категории");
 
         confirm = new Dialog(this);
         confirm.setContentView(R.layout.confirm_cat_add);
@@ -69,5 +82,14 @@ public class CategoriesActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setCategoryRecycler(List<Category> categoryList) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        categoryRecycler = findViewById(R.id.CatView);
+        categoryRecycler.setLayoutManager(layoutManager);
+        categoryAdapter = new CategoryAdapter(this, categoryList);
+        categoryRecycler.setAdapter(categoryAdapter);
+
     }
 }
