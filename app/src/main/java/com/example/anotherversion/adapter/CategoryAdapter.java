@@ -83,10 +83,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         btnAddYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.deleteCat(categories.get(holder.getAdapterPosition()).getId());
+                holder.categoryBtnDelete.setEnabled(false);
+                int id_delete = categories.get(holder.getAdapterPosition()).getId();
                 confirm.dismiss();
-                Intent intent = new Intent(context, CategoriesActivity.class);
-                context.startActivity(intent);
+                categories.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+                notifyItemRangeChanged(holder.getAdapterPosition(), getItemCount() - holder.getAdapterPosition());
+                db.deleteCat(id_delete);
             }
         });
     }

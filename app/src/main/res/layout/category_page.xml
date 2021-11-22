@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:textSize="20dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerViewCategoryItems"
@@ -32,6 +32,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:gravity="clip_horizontal"
-        android:text="@string/cat_btn_add"
+        android:text="@string/cat_item_btn_add"
         android:textSize="25dp" />
 </RelativeLayout>

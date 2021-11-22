@@ -50,11 +50,12 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
         holder.DeleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.deleteCatItem(items.get(holder.getAdapterPosition()).getId());
-                Intent intent = new Intent(context, CategoryItemsPage.class);
-                intent.putExtra("id", id);
-                intent.putExtra("name", name);
-                context.startActivity(intent);
+                holder.DeleteBtn.setEnabled(false);
+                int id_delete = items.get(holder.getAdapterPosition()).getId();
+                items.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+                notifyItemRangeChanged(holder.getAdapterPosition(), getItemCount() - holder.getAdapterPosition());
+                db.deleteCatItem(id_delete);
             }
         });
     }

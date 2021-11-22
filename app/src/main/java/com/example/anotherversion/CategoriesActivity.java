@@ -33,8 +33,7 @@ public class CategoriesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
         db = new DbHelper(this);
 
-        List<Category> categoryList = db.getCategories();
-        setCategoryRecycler(categoryList);
+        updateRecycleView();
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Категории");
 
@@ -80,11 +79,16 @@ public class CategoriesActivity extends AppCompatActivity {
                     db.addCat(cat_name);
                     Toast.makeText(getApplicationContext(), "Категория добавлена!", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(getApplicationContext(), CategoriesActivity.class);
-                    startActivity(intent);
+                    updateRecycleView();
                 }
             }
         });
+    }
+
+    public void updateRecycleView()
+    {
+        List<Category> categoryList = db.getCategories();
+        setCategoryRecycler(categoryList);
     }
 
     private void setCategoryRecycler(List<Category> categoryList) {

@@ -1,10 +1,7 @@
 package com.example.anotherversion;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.anotherversion.adapter.CategoryAdapter;
 import com.example.anotherversion.adapter.CategoryItemsAdapter;
-import com.example.anotherversion.model.Category;
 import com.example.anotherversion.model.CategoryItem;
 
 import java.util.List;
@@ -43,8 +38,7 @@ public class CategoryItemsPage extends AppCompatActivity {
         confirm.setContentView(R.layout.confirm_cat_add_item);
         confirm.setCancelable(true);
 
-        List<CategoryItem> categoryItems = db.getCategoriesItems(id);
-        setCategoryRecycler(categoryItems);
+        updateRecycleView();
 
         TextView nameTextView = findViewById(R.id.textViewCategoryItems);
         RecyclerView items = findViewById(R.id.RecyclerViewCategoryItems);
@@ -75,32 +69,28 @@ public class CategoryItemsPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String cat_name = item_name_dialog.getText().toString();
-                String value = item_cost_dialog.getText().toString();
-                int cat_cost = Integer.parseInt(value);
-                Log.e("TAG", "Value " + cat_cost);
+                String cat_cost_str = item_cost_dialog.getText().toString();
 
-                if (cat_name.equals(""))
-                {
+                if (cat_name.equals("")) {
                     Toast.makeText(getApplicationContext(),"Вы не ввели название вложения!",Toast.LENGTH_SHORT).show();
                 }
-                else if (cat_cost <= 0)
-                {
-                    Toast.makeText(getApplicationContext(),"Вы не указали сумму вложения!",Toast.LENGTH_SHORT).show();
+                else if (isDigit(cat_cost_str) == false) {
+                    Toast.makeText(getApplicationContext(),"Неверная сумма!",Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-                    db.addCatItem(cat_name, cat_cost, id);
+                else {
+                    db.addCatItem(cat_name, Integer.parseInt(cat_cost_str), id);
                     Toast.makeText(getApplicationContext(), "Вложение добавлено!", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(getApplicationContext(), CategoryItemsPage.class);
-
-                    intent.putExtra("id", id);
-                    intent.putExtra("name", name);
-
-                    startActivity(intent);
+                    updateRecycleView();
                 }
             }
         });
+    }
+
+    public void updateRecycleView()
+    {
+        List<CategoryItem> categoryItems = db.getCategoriesItems(id);
+        setCategoryRecycler(categoryItems);
     }
 
     private void setCategoryRecycler(List<CategoryItem> itemsList) {
@@ -109,5 +99,14 @@ public class CategoryItemsPage extends AppCompatActivity {
         categoryItemsRecycler.setLayoutManager(layoutManager);
         categoryItemsAdapter = new CategoryItemsAdapter(this, itemsList, id, name);
         categoryItemsRecycler.setAdapter(categoryItemsAdapter);
+    }
+
+    private static boolean isDigit(String s) throws NumberFormatException {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
