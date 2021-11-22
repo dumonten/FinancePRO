@@ -1,13 +1,23 @@
-package com.example.anotherversion.modal;
+package com.example.anotherversion.model;
 
-public class Category {
+public class CategoryItem {
 
     int id;
     String name;
+    int cost;
 
-    public Category(int id, String name) {
+    public CategoryItem(int id, String name, int cost) {
         this.id = id;
         this.name = name;
+        this.cost = cost;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 
     public int getId() {

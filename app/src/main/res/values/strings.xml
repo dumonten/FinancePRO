@@ -6,4 +6,5 @@
     <string name="process">Загрузка...</string>
     <string name="cat_title">Категории</string>
     <string name="cat_btn_add">+ Категория</string>
+    <string name="cat_item_btn_add">Добавить</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,9 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.anotherversion.adapter.CategoryAdapter;
-import com.example.anotherversion.modal.Category;
+import com.example.anotherversion.model.Category;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -79,6 +79,9 @@ public class CategoriesActivity extends AppCompatActivity {
                 {
                     db.addCat(cat_name);
                     Toast.makeText(getApplicationContext(), "Категория добавлена!", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(getApplicationContext(), CategoriesActivity.class);
+                    startActivity(intent);
                 }
             }
         });

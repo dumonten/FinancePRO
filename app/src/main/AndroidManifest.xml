@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Anotherversion">
         <activity
+            android:name=".CategoryItemsPage"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AnotherversionWithActionVar" />
+        <activity
             android:name=".CategoriesActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
