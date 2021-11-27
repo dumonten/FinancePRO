@@ -78,7 +78,8 @@ public class CategoryItemsPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Неверная сумма!",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    db.addCatItem(cat_name, Integer.parseInt(cat_cost_str), id);
+                    String rnd = String.format("%.2f", Float.parseFloat(cat_cost_str));
+                    db.addCatItem(cat_name, Float.parseFloat(rnd), id);
                     Toast.makeText(getApplicationContext(), "Вложение добавлено!", Toast.LENGTH_SHORT).show();
 
                     updateRecycleView();
@@ -103,7 +104,7 @@ public class CategoryItemsPage extends AppCompatActivity {
 
     private static boolean isDigit(String s) throws NumberFormatException {
         try {
-            Integer.parseInt(s);
+            Float.parseFloat(s);
             return true;
         } catch (NumberFormatException e) {
             return false;

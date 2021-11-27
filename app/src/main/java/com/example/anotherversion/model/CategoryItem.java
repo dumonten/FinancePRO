@@ -4,19 +4,19 @@ public class CategoryItem {
 
     int id;
     String name;
-    int cost;
+    float cost;
 
-    public CategoryItem(int id, String name, int cost) {
+    public CategoryItem(int id, String name, float cost) {
         this.id = id;
         this.name = name;
         this.cost = cost;
     }
 
-    public int getCost() {
+    public float getCost() {
         return cost;
     }
 
-    public void setCost(int cost) {
+    public void setCost(float cost) {
         this.cost = cost;
     }
 

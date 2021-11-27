@@ -43,7 +43,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Введите стоимость"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:minHeight="48dp" />
 
     <LinearLayout

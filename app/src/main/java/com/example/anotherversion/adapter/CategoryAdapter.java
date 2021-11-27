@@ -73,6 +73,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             }
         });
 
+        if (categories.get(holder.getAdapterPosition()).getName().equals("Доходы")) {
+            holder.categoryBtnDelete.setVisibility(View.GONE);
+        }
+        else
         holder.categoryBtnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

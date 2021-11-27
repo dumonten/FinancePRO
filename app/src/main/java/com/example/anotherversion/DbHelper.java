@@ -10,8 +10,11 @@ import android.util.Log;
 import com.example.anotherversion.model.Category;
 import com.example.anotherversion.model.CategoryItem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class DbHelper extends SQLiteOpenHelper {
 
@@ -45,11 +48,13 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CAT_ITEMS_CAT_ID = "cat_id";
     public static final String COLUMN_CAT_ITEMS_NAME ="cat_item_name";
     public static final String COLUMN_CAT_ITEMS_COST ="cat_item_cost";
+    public static final String COLUMN_CAT_ITEMS_DATE ="cat_item_date";
     public static final String CREATE_TABLE_CAT_ITEMS = "CREATE TABLE `" + TABLE_CAT_ITEMS + "` (`"
             + COLUMN_CAT_ITEMS_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
             + COLUMN_CAT_ITEMS_NAME + "` TEXT, `"
             + COLUMN_CAT_ITEMS_CAT_ID + "` INTEGER, `"
-            + COLUMN_CAT_ITEMS_COST + "` INTEGER);";
+            + COLUMN_CAT_ITEMS_COST + "` REAL, `"
+            + COLUMN_CAT_ITEMS_DATE + "` TEXT);";
     /* ================== */
 
     public DbHelper(Context context) {
@@ -61,6 +66,8 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_ANS);
         db.execSQL(CREATE_TABLE_CAT);
         db.execSQL(CREATE_TABLE_CAT_ITEMS);
+
+        addCat("Доходы");
     }
 
     @Override
@@ -85,6 +92,10 @@ public class DbHelper extends SQLiteOpenHelper {
     public void deleteCat(int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        //onUpgrade(db, 0,0);
+
+
         String selectQuery;
         selectQuery = "DELETE FROM `" + TABLE_CAT + "` WHERE `" + COLUMN_CAT_ID + "` = '" + id + "'";
         db.execSQL(selectQuery);
@@ -93,13 +104,18 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addCatItem(String name, int cost, int id)
+    public void addCatItem(String name, float cost, int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
+        String currentDateAndTime = sdf.format(new Date());
+
         values.put (COLUMN_CAT_ITEMS_NAME, name);
         values.put (COLUMN_CAT_ITEMS_CAT_ID, id);
         values.put (COLUMN_CAT_ITEMS_COST, cost);
+        values.put (COLUMN_CAT_ITEMS_DATE, currentDateAndTime);
         db.insert (TABLE_CAT_ITEMS, null, values);
         db.close();
     }
@@ -176,7 +192,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 // Используем индекс для получения строки или числа
                 int currentID = cursor.getInt(0);
                 String currentName = cursor.getString(1);
-                int currentCost = cursor.getInt(3);
+                float currentCost = cursor.getFloat(3);
                 categoryItemsList.add(new CategoryItem(currentID, currentName, currentCost));
             }
         } catch (Exception e) {
