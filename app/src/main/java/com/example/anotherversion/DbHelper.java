@@ -21,7 +21,7 @@ public class DbHelper extends SQLiteOpenHelper {
     /* Main Settings */
     public static final String TAG = DbHelper.class.getSimpleName();
     public static final String DB_NAME = "main.db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
     /* ============= */
 
     /* Tables */
@@ -67,7 +67,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_CAT);
         db.execSQL(CREATE_TABLE_CAT_ITEMS);
 
-        addCat("Доходы");
+        addCatHardcoded(db, "Доходы");
     }
 
     @Override
@@ -75,10 +75,18 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+USER_ANS);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAT);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAT_ITEMS);
+
         onCreate(db);
     }
 
     /* Categories romchonsh */
+
+    public  void addCatHardcoded(SQLiteDatabase db, String name)
+    {
+        ContentValues values = new ContentValues();
+        values.put (COLUMN_CAT_NAME, name);
+        db.insert (TABLE_CAT, null, values);
+    }
 
     public void addCat(String name)
     {
@@ -92,10 +100,6 @@ public class DbHelper extends SQLiteOpenHelper {
     public void deleteCat(int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-
-        //onUpgrade(db, 0,0);
-
-
         String selectQuery;
         selectQuery = "DELETE FROM `" + TABLE_CAT + "` WHERE `" + COLUMN_CAT_ID + "` = '" + id + "'";
         db.execSQL(selectQuery);
@@ -131,22 +135,15 @@ public class DbHelper extends SQLiteOpenHelper {
     public boolean checkExistsCat(String name)
     {
         String selectQuery = "SELECT * FROM `" + TABLE_CAT + "` WHERE `" + COLUMN_CAT_NAME + "` = '" + name + "'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
-        SQLiteDatabase db = null;
-        Cursor cursor = null;
-        try {
-            db = this.getReadableDatabase();
-            cursor = db.rawQuery(selectQuery, null);
-            if (cursor.getCount() > 0) {
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            cursor.close();
-            db.close();
+        if (cursor.getCount() > 0) {
+            return true;
         }
 
+        cursor.close();
+        db.close();
         return  false;
     }
 
@@ -154,25 +151,19 @@ public class DbHelper extends SQLiteOpenHelper {
     {
         List<Category> categoryList = new ArrayList<>();
         String selectQuery = "SELECT * FROM `" + TABLE_CAT + "`";
-        SQLiteDatabase db = null;
-        Cursor cursor = null;
-        try {
-            db = this.getReadableDatabase();
-            cursor = db.rawQuery(selectQuery, null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
-            // Проходим через все ряды
-            while (cursor.moveToNext()) {
-                // Используем индекс для получения строки или числа
-                int currentID = cursor.getInt(0);
-                String currentName = cursor.getString(1);
-                categoryList.add(new Category(currentID, currentName));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            cursor.close();
-            db.close();
+        // Проходим через все ряды
+        while (cursor.moveToNext()) {
+            // Используем индекс для получения строки или числа
+            int currentID = cursor.getInt(0);
+            String currentName = cursor.getString(1);
+            categoryList.add(new Category(currentID, currentName));
         }
+
+        cursor.close();
+        db.close();
 
         return categoryList;
     }
@@ -181,26 +172,20 @@ public class DbHelper extends SQLiteOpenHelper {
     {
         List<CategoryItem> categoryItemsList = new ArrayList<>();
         String selectQuery = "SELECT * FROM `" + TABLE_CAT_ITEMS + "` WHERE `" + COLUMN_CAT_ITEMS_CAT_ID + "` = '" + id_search + "'";
-        SQLiteDatabase db = null;
-        Cursor cursor = null;
-        try {
-            db = this.getReadableDatabase();
-            cursor = db.rawQuery(selectQuery, null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
-            // Проходим через все ряды
-            while (cursor.moveToNext()) {
-                // Используем индекс для получения строки или числа
-                int currentID = cursor.getInt(0);
-                String currentName = cursor.getString(1);
-                float currentCost = cursor.getFloat(3);
-                categoryItemsList.add(new CategoryItem(currentID, currentName, currentCost));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            cursor.close();
-            db.close();
+        // Проходим через все ряды
+        while (cursor.moveToNext()) {
+            // Используем индекс для получения строки или числа
+            int currentID = cursor.getInt(0);
+            String currentName = cursor.getString(1);
+            float currentCost = cursor.getFloat(3);
+            categoryItemsList.add(new CategoryItem(currentID, currentName, currentCost));
         }
+
+        cursor.close();
+        db.close();
 
         return categoryItemsList;
     }

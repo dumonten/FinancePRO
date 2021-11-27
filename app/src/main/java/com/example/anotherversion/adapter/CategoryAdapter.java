@@ -28,6 +28,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     Context context;
     List<Category> categories;
 
+    public interface OnCardClickListener {
+        void onCardClick(View view,  int position);
+    }
+
+    // создаем поле объекта-колбэка
+    private static CategoryAdapter.OnCardClickListener mListener;
+
+    // метод-сеттер для привязки колбэка к получателю событий
+    public void setOnCardClickListener(CategoryAdapter.OnCardClickListener listener) {
+        mListener = listener;
+    }
+
     public CategoryAdapter(Context context, List<Category> categories) {
         this.context = context;
         this.categories = categories;
@@ -90,10 +102,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 holder.categoryBtnDelete.setEnabled(false);
                 int id_delete = categories.get(holder.getAdapterPosition()).getId();
                 confirm.dismiss();
-                categories.remove(holder.getAdapterPosition());
-                notifyItemRemoved(holder.getAdapterPosition());
-                notifyItemRangeChanged(holder.getAdapterPosition(), getItemCount() - holder.getAdapterPosition());
                 db.deleteCat(id_delete);
+                mListener.onCardClick(v, holder.getAdapterPosition());
             }
         });
     }

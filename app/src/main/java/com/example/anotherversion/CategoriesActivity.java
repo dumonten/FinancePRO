@@ -18,7 +18,7 @@ import com.example.anotherversion.model.Category;
 import java.util.List;
 import java.util.Objects;
 
-public class CategoriesActivity extends AppCompatActivity {
+public class CategoriesActivity extends AppCompatActivity implements CategoryAdapter.OnCardClickListener {
 
     Button btnAdd;
     Dialog confirm;
@@ -26,6 +26,12 @@ public class CategoriesActivity extends AppCompatActivity {
 
     RecyclerView categoryRecycler;
     CategoryAdapter categoryAdapter;
+
+    // метод, который получит события из нашего колбэка
+    @Override
+    public void onCardClick(View view, int position) {
+        updateRecycleView();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +102,7 @@ public class CategoriesActivity extends AppCompatActivity {
         categoryRecycler = findViewById(R.id.CatView);
         categoryRecycler.setLayoutManager(layoutManager);
         categoryAdapter = new CategoryAdapter(this, categoryList);
+        categoryAdapter.setOnCardClickListener(this);
         categoryRecycler.setAdapter(categoryAdapter);
 
     }

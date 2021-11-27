@@ -18,13 +18,19 @@ import com.example.anotherversion.model.CategoryItem;
 
 import java.util.List;
 
-public class CategoryItemsPage extends AppCompatActivity {
+public class CategoryItemsPage extends AppCompatActivity implements CategoryItemsAdapter.OnCardClickListener {
     private DbHelper db;
     Dialog confirm;
     RecyclerView categoryItemsRecycler;
     CategoryItemsAdapter categoryItemsAdapter;
     public int id;
     public String name;
+
+    // метод, который получит события из нашего колбэка
+    @Override
+    public void onCardClick(View view, int position) {
+        updateRecycleView();
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,6 +105,7 @@ public class CategoryItemsPage extends AppCompatActivity {
         categoryItemsRecycler = findViewById(R.id.RecyclerViewCategoryItems);
         categoryItemsRecycler.setLayoutManager(layoutManager);
         categoryItemsAdapter = new CategoryItemsAdapter(this, itemsList, id, name);
+        categoryItemsAdapter.setOnCardClickListener(this);
         categoryItemsRecycler.setAdapter(categoryItemsAdapter);
     }
 
