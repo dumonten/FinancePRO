@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Date;
@@ -16,6 +18,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     Button btnStat, btnCat, btnExit, btnDay, btnWeek, btnMonth, btnExYes, btnExNo;
     Dialog dialog, confirm;
+    ImageView imStat, imCategr, imExt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         confirm.setContentView(R.layout.confirm_exit);
         confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setCancelable(false);
+        imStat = (ImageView) findViewById(R.id.imStat);
+        imCategr = (ImageView) findViewById(R.id.imCategr);
+        imExt = (ImageView) findViewById(R.id.imExt);
         btnStat = (Button) findViewById(R.id.toStatistics);
         btnCat = (Button) findViewById(R.id.toCategories);
         btnExit = (Button) findViewById(R.id.toExit);
@@ -38,6 +44,26 @@ public class MainActivity extends AppCompatActivity {
         btnExYes = (Button) confirm.findViewById(R.id.exitYes);
         btnExNo = (Button) confirm.findViewById(R.id.exitNo);
 
+        imStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.show();
+            }
+        });
+
+        imExt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirm.show();
+            }
+        });
+        imCategr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CategoriesActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnStat.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -58,7 +58,7 @@ public class DiagramActivity extends AppCompatActivity {
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
         l.setDrawInside(false);
-        l.setFormSize(8f);
+        l.setFormSize(16f);
         l.setEnabled(true);
 
         pieChart.getLegend().setWordWrapEnabled(true);
@@ -100,7 +100,7 @@ public class DiagramActivity extends AppCompatActivity {
         PieData data = new PieData(dataSet);
         data.setDrawValues(true);
         data.setValueFormatter(new PercentFormatter(pieChart));
-        data.setValueTextSize(10f);
+        data.setValueTextSize(16f);
         data.setValueTextColor(Color.BLACK);
 
         pieChart.setData(data);

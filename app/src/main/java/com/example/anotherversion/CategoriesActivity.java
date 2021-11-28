@@ -19,6 +19,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * kdsjgkjkj
+ * @author Roman
+ */
 public class CategoriesActivity extends AppCompatActivity implements CategoryAdapter.OnCardClickListener {
 
     Button btnAdd;

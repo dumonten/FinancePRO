@@ -157,9 +157,9 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // Проходим через все ряды
+
         while (cursor.moveToNext()) {
-            // Используем индекс для получения строки или числа
+
             int currentID = cursor.getInt(0);
             String currentName = cursor.getString(1);
             categoryList.add(new Category(currentID, currentName));
@@ -178,9 +178,9 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // Проходим через все ряды
+        
         while (cursor.moveToNext()) {
-            // Используем индекс для получения строки или числа
+
             int currentID = cursor.getInt(0);
             String currentName = cursor.getString(1);
             float currentCost = cursor.getFloat(3);
