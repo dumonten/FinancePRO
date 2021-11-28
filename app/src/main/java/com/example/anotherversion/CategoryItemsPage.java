@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.anotherversion.adapter.CategoryItemsAdapter;
 import com.example.anotherversion.model.CategoryItem;
 
+import java.util.Date;
 import java.util.List;
 
 public class CategoryItemsPage extends AppCompatActivity implements CategoryItemsAdapter.OnCardClickListener {
@@ -84,12 +85,16 @@ public class CategoryItemsPage extends AppCompatActivity implements CategoryItem
                 else if (isDigit(cat_cost_str) == false) {
                     Toast.makeText(getApplicationContext(),"Неверная сумма!",Toast.LENGTH_SHORT).show();
                 }
+                else if (Float.parseFloat(cat_cost_str) <= 0.0) {
+                    Toast.makeText(getApplicationContext(),"Неверная сумма!",Toast.LENGTH_SHORT).show();
+                }
                 else {
+                    Date curTime = new Date();
+                    long curT = curTime.getTime() / 1000L;
                     String rnd = String.format("%.2f", Float.parseFloat(cat_cost_str));
                     rnd = rnd.replace(",",".");
-                    db.addCatItem(cat_name, Float.parseFloat(rnd), id);
+                    db.addCatItem(cat_name, Float.parseFloat(rnd), id, curT);
                     Toast.makeText(getApplicationContext(), "Вложение добавлено!", Toast.LENGTH_SHORT).show();
-
                     updateRecycleView();
                 }
             }

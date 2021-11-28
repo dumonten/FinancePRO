@@ -36,8 +36,9 @@ public class StatisticsActivity extends AppCompatActivity {
     private List<CategoryItem> CatItemData;
     private LinearLayout main_layout;
     private Button DiagBut;
-    private long curDateSec,date_lim;
+    private long curDateMilsec,date_lim;
     private int Itype;
+    Date d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +51,16 @@ public class StatisticsActivity extends AppCompatActivity {
         CatList = db.getCategories();
         main_layout = findViewById(R.id.LinStats);
 
-        Date d = new Date();
-        curDateSec = (long)d.getTime();
+        d = new Date();
+        curDateMilsec = d.getTime() / 1000L;
 
         date_lim = 0;
         if (Itype == 1) {
-            date_lim = 86400000L;
+            date_lim = 86400L;
         } else if (Itype == 2) {
-            date_lim = 604800000L;
+            date_lim = 604800L;
         } else if (Itype == 3) {
-            date_lim = 2678400000L;
+            date_lim = 2678400L;
         }
 
         long allCost = 0;
@@ -74,7 +75,7 @@ public class StatisticsActivity extends AppCompatActivity {
             }
         }
 
-        generateStats(curDateSec, date_lim, allCost, earningsCost);
+        generateStats(curDateMilsec, date_lim, allCost, earningsCost);
 
         DiagBut = (Button) findViewById(R.id.dBut);
 
@@ -82,7 +83,7 @@ public class StatisticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DiagramActivity.class);
-                intent.putExtra("curdata", curDateSec);
+                intent.putExtra("curdata", curDateMilsec);
                 intent.putExtra("limit", date_lim);
                 startActivity(intent);
             }
@@ -113,7 +114,7 @@ public class StatisticsActivity extends AppCompatActivity {
             middle_layout.setOrientation(LinearLayout.VERTICAL);
             middle_layout.setVisibility(View.GONE);
             for (CategoryItem key : CatItemData) {
-                if (curDateSec - 1000L * key.getDateSec() < date_lim) {
+                if (curDateSec - key.getDateSec() < date_lim) {
                     TextView txt = new TextView(this);
                     txt.setText(key.getName() + ": " + key.getCost() + "p.");
                     txt.setLayoutParams(params);
