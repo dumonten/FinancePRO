@@ -58,14 +58,6 @@ public class DbHelper extends SQLiteOpenHelper {
             + COLUMN_CAT_ITEMS_DATE + "` TEXT, `"
             + COLUMN_CAT_ITEMS_DATESEC + "` INTEGER);";
 
-
-
-    /*public static final String CREATE_TABLE_CAT_ITEMS = "CREATE TABLE `" + TABLE_CAT_ITEMS + "` (`"
-            + COLUMN_CAT_ITEMS_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
-            + COLUMN_CAT_ITEMS_NAME + "` TEXT, `"
-            + COLUMN_CAT_ITEMS_CAT_ID + "` INTEGER, `"
-            + COLUMN_CAT_ITEMS_COST + "` REAL, `"
-            + COLUMN_CAT_ITEMS_DATE + "` TEXT);";*/
     /* ================== */
 
     public DbHelper(Context context) {
@@ -119,22 +111,18 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addCatItem(String name, float cost, int id)
+    public void addCatItem(String name, float cost, int id, long curDateMilsec)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
         String currentDateAndTime = sdf.format(new Date());
-
-        Date d = new Date();
-        long datesec = (long)d.getTime();
-
         values.put (COLUMN_CAT_ITEMS_NAME, name);
         values.put (COLUMN_CAT_ITEMS_CAT_ID, id);
         values.put (COLUMN_CAT_ITEMS_COST, cost);
         values.put (COLUMN_CAT_ITEMS_DATE, currentDateAndTime);
-        values.put (COLUMN_CAT_ITEMS_DATESEC, datesec);
+        values.put (COLUMN_CAT_ITEMS_DATESEC, curDateMilsec);
         db.insert (TABLE_CAT_ITEMS, null, values);
         db.close();
     }
@@ -197,7 +185,7 @@ public class DbHelper extends SQLiteOpenHelper {
             String currentName = cursor.getString(1);
             float currentCost = cursor.getFloat(3);
             String currentDate = cursor.getString(4);
-            int currentDateSec = cursor.getInt(5);
+            long currentDateSec = cursor.getInt(5);
             categoryItemsList.add(new CategoryItem(currentID, currentName, currentCost, currentDate, currentDateSec));
         }
 

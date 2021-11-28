@@ -70,7 +70,7 @@ public class DiagramActivity extends AppCompatActivity {
         for (Category cur : CatList) {
             CatItemData = db.getCategoriesItems(cur.getId());
             for (CategoryItem key : CatItemData) {
-                if (curDateSec - 1000L * key.getDateSec() < date_lim) {
+                if (curDateSec - key.getDateSec() < date_lim) {
                     allCost += (long)(key.getCost() * 100);
                 }
             }
@@ -79,7 +79,7 @@ public class DiagramActivity extends AppCompatActivity {
             long curCost = 0;
             CatItemData = db.getCategoriesItems(cur.getId());
             for (CategoryItem key : CatItemData) {
-                if (curDateSec - 1000L * key.getDateSec() < date_lim) {
+                if (curDateSec - key.getDateSec() < date_lim) {
                     curCost += (long)(key.getCost() * 100);
                 }
             }
