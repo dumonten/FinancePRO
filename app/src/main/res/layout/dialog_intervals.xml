@@ -1,58 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="320dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/tDay"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Выберите промежуток времени"
-        android:textSize="15sp"
-        android:fontFamily="monospace"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        android:text="Day"
-        android:textColor="@color/black"
-        android:layout_toLeftOf="@id/bWeek"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/tDay"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Выберите интервал времени "
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/bWeek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="5dp"
-        android:text="Week"
-        android:textColor="@color/black"
-        android:layout_below="@id/tDay"
-        android:layout_centerHorizontal="true"/>
+            <LinearLayout
+            android:id="@+id/tableRow243"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/bMonth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange"
-        android:text="Month"
-        android:textColor="@color/black"
-        android:layout_toRightOf="@id/bWeek"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/tDay"/>
-
-
-
-</RelativeLayout>
+            <Button
+                android:id="@+id/bDay"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorWhite"
+                android:paddingVertical="5dp"
+                android:text="День"
+                android:textStyle="bold"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="@color/gray"
+                android:textSize="14sp" />
+            <Button
+                android:id="@+id/bWeek"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorWhite"
+                android:text="Неделя"
+                android:textStyle="bold"
+                style="?android:attr/borderlessButtonStyle"
+                android:paddingVertical="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray" />
+            <Button
+                android:id="@+id/bMonth"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="?android:attr/borderlessButtonStyle"
+                android:backgroundTint="@color/colorWhite"
+                android:text="Месяц"
+                android:textStyle="bold"
+                android:paddingVertical="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

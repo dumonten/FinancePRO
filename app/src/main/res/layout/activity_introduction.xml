@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Introduction"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_centerVertical="true"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="70dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/welcome"
+        android:elevation="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/open_sans_extrabold"
+        android:text="@string/introduction"
+        android:textColor="@color/mb_green"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/intr2"
+        android:textColor="@color/gray"
+        android:textSize="15sp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="250dp"
+        android:layout_marginTop = "50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded"
+        android:text="@string/start"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:elevation="6dp"
+        android:translationZ="4dp"/>
+
+
+
+</LinearLayout>

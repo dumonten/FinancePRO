@@ -23,7 +23,6 @@
                 android:id="@+id/dBut"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:layout_below="@id/name"
                 android:text="К диаграмме"
                 android:textColor="@color/black"
                 android:textSize="20sp"

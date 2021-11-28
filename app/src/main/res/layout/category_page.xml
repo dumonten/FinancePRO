@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="3">
 
 
     <TextView
         android:id="@+id/textViewCategoryItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
         android:layout_marginTop="15dp"
+        android:textColor="@color/gray"
         android:text="TextView"
         android:textSize="20dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerViewCategoryItems"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_below="@+id/textViewCategoryItems"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp" />
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewCategoryItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="5dp"/>
 
-    <Button
-        android:id="@+id/cat_items_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/RecyclerViewCategoryItems"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:gravity="clip_horizontal"
-        android:text="@string/cat_item_btn_add"
-        android:textSize="25dp" />
-</RelativeLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cat_items_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/gray"
+            android:src="@drawable/plus" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

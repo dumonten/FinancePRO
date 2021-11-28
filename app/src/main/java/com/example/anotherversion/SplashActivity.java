@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (password.equals("")){
-                    Intent intent = new Intent(getApplicationContext(), CreatePassword.class);
+                    Intent intent = new Intent(getApplicationContext(), Introduction.class);
                     startActivity(intent);
                     finish();
                 }
