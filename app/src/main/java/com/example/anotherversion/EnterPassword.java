@@ -10,11 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * Окно ввода пароля
+ * @author Янкова Анастасия
+ */
 public class EnterPassword extends AppCompatActivity {
     Button btnEnter;
     EditText etPass;
     String password;
     int clickcount =0;
+
+    /**
+     * Создание окна и всего его содержимого
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +34,10 @@ public class EnterPassword extends AppCompatActivity {
         password = pref.getString("password", "");
         btnEnter.setOnClickListener(new View.OnClickListener() {
 
+            /**
+             * Кнопка подтверждения пароля.
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 String edit = etPass.getText().toString();

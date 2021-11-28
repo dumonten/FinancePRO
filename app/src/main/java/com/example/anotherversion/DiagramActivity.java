@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
 import com.example.anotherversion.model.Category;
 import com.example.anotherversion.model.CategoryItem;
 import com.github.mikephil.charting.charts.PieChart;
@@ -58,7 +57,7 @@ public class DiagramActivity extends AppCompatActivity {
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
         l.setDrawInside(false);
-        l.setFormSize(8f);
+        l.setFormSize(12f);
         l.setEnabled(true);
 
         pieChart.getLegend().setWordWrapEnabled(true);

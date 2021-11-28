@@ -1,7 +1,6 @@
 package com.example.anotherversion.model;
 
 public class CategoryItem {
-
     int id;
     String name;
     float cost;
@@ -46,5 +45,5 @@ public class CategoryItem {
 
     public long getDateSec() { return dateSec; }
 
-    public void setDate(long dateSec) { this.dateSec = dateSec; }
+    public void setDateSec(long dateSec) { this.dateSec = dateSec; }
 }

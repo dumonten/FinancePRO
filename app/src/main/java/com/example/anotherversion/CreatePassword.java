@@ -50,10 +50,5 @@ public class CreatePassword extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
     }
 }

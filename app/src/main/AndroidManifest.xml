@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Anotherversion">
         <activity
             android:name=".DiagramActivity"
-            android:parentActivityName=".StatisticsActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.AnotherversionWithActionVar"/>
         <activity
