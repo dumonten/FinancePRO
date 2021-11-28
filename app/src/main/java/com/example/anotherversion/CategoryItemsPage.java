@@ -36,6 +36,7 @@ public class CategoryItemsPage extends AppCompatActivity implements CategoryItem
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category_page);
+        getSupportActionBar().setTitle("Экран сумм");
         db = new DbHelper(this);
         id = getIntent().getIntExtra("id", 0);
         name = getIntent().getStringExtra("name");
@@ -75,7 +76,7 @@ public class CategoryItemsPage extends AppCompatActivity implements CategoryItem
             @Override
             public void onClick(View v) {
                 String cat_name = item_name_dialog.getText().toString();
-                String cat_cost_str = item_cost_dialog.getText().toString();
+                String cat_cost_str = item_cost_dialog.getText().toString().replace(",",".");
 
                 if (cat_name.equals("")) {
                     Toast.makeText(getApplicationContext(),"Вы не ввели название вложения!",Toast.LENGTH_SHORT).show();
@@ -85,6 +86,7 @@ public class CategoryItemsPage extends AppCompatActivity implements CategoryItem
                 }
                 else {
                     String rnd = String.format("%.2f", Float.parseFloat(cat_cost_str));
+                    rnd = rnd.replace(",",".");
                     db.addCatItem(cat_name, Float.parseFloat(rnd), id);
                     Toast.makeText(getApplicationContext(), "Вложение добавлено!", Toast.LENGTH_SHORT).show();
 

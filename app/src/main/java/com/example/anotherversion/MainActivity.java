@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btnDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "You've chosen 'Day'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
+                intent.putExtra("type", 1);
                 startActivity(intent);
             }
         });
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         btnWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "You've chosen 'Week'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
+                intent.putExtra("type", 2);
                 startActivity(intent);
             }
         });
@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         btnMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "You've chosen 'Month'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
+                intent.putExtra("type", 3);
                 startActivity(intent);
             }
         });

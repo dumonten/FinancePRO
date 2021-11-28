@@ -56,7 +56,12 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryAda
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                confirm.show();
+                List<Category> cat = db.getCategories();
+                if (cat.size() < 8) {
+                    confirm.show();
+                } else {
+                    Toast.makeText(getApplicationContext(),"Достигнуто максимальное количество категорий!",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -71,8 +76,11 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryAda
             @Override
             public void onClick(View v) {
                 String cat_name = cat_name_obj.getText().toString();
-
-                if (cat_name.equals(""))
+                List<Category> cat = db.getCategories();
+                if (cat.size() >= 8) {
+                    Toast.makeText(getApplicationContext(),"Достигнуто максимальное количество категорий!",Toast.LENGTH_SHORT).show();
+                }
+                else if (cat_name.equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"Вы не ввели название категории!",Toast.LENGTH_SHORT).show();
                 }

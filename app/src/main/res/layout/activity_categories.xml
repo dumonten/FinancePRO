@@ -21,7 +21,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/CatView"
         android:layout_width="match_parent"
-        android:layout_height="447dp"
+        android:layout_height="350dp"
         android:layout_below="@id/cat_title"
         android:layout_marginTop="15dp"
         android:paddingTop="5dp"

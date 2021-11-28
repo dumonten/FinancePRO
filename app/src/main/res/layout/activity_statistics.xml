@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     tools:context=".StatisticsActivity"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="34dp"
-        android:layout_marginTop="65dp"
-        android:text="Тут пока немно-о-ожечко пустовато. Всего чуточку, не считаете?"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:fontFamily="monospace" />
+    <ScrollView
+        android:id="@+id/CatStats"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:id="@+id/LinStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/dBut"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@id/name"
+                android:text="К диаграмме"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="@color/orange"
+                android:fontFamily="monospace"
+                android:textStyle="bold"/>
+
+        </LinearLayout>>
+
+    </ScrollView>
 
 </RelativeLayout>

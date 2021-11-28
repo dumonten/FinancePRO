@@ -21,7 +21,7 @@ public class DbHelper extends SQLiteOpenHelper {
     /* Main Settings */
     public static final String TAG = DbHelper.class.getSimpleName();
     public static final String DB_NAME = "main.db";
-    public static final int DB_VERSION = 2;
+    public static final int DB_VERSION = 3;
     /* ============= */
 
     /* Tables */
@@ -49,12 +49,23 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CAT_ITEMS_NAME ="cat_item_name";
     public static final String COLUMN_CAT_ITEMS_COST ="cat_item_cost";
     public static final String COLUMN_CAT_ITEMS_DATE ="cat_item_date";
+    public static final String COLUMN_CAT_ITEMS_DATESEC ="cat_item_date_sec";
     public static final String CREATE_TABLE_CAT_ITEMS = "CREATE TABLE `" + TABLE_CAT_ITEMS + "` (`"
             + COLUMN_CAT_ITEMS_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
             + COLUMN_CAT_ITEMS_NAME + "` TEXT, `"
             + COLUMN_CAT_ITEMS_CAT_ID + "` INTEGER, `"
             + COLUMN_CAT_ITEMS_COST + "` REAL, `"
-            + COLUMN_CAT_ITEMS_DATE + "` TEXT);";
+            + COLUMN_CAT_ITEMS_DATE + "` TEXT, `"
+            + COLUMN_CAT_ITEMS_DATESEC + "` INTEGER);";
+
+
+
+    /*public static final String CREATE_TABLE_CAT_ITEMS = "CREATE TABLE `" + TABLE_CAT_ITEMS + "` (`"
+            + COLUMN_CAT_ITEMS_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
+            + COLUMN_CAT_ITEMS_NAME + "` TEXT, `"
+            + COLUMN_CAT_ITEMS_CAT_ID + "` INTEGER, `"
+            + COLUMN_CAT_ITEMS_COST + "` REAL, `"
+            + COLUMN_CAT_ITEMS_DATE + "` TEXT);";*/
     /* ================== */
 
     public DbHelper(Context context) {
@@ -72,9 +83,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+USER_ANS);
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAT);
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAT_ITEMS);
+        db.execSQL("DROP TABLE IF EXISTS " + USER_ANS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAT);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CAT_ITEMS);
 
         onCreate(db);
     }
@@ -116,10 +127,14 @@ public class DbHelper extends SQLiteOpenHelper {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.getDefault());
         String currentDateAndTime = sdf.format(new Date());
 
+        Date d = new Date();
+        long datesec = (long)d.getTime();
+
         values.put (COLUMN_CAT_ITEMS_NAME, name);
         values.put (COLUMN_CAT_ITEMS_CAT_ID, id);
         values.put (COLUMN_CAT_ITEMS_COST, cost);
         values.put (COLUMN_CAT_ITEMS_DATE, currentDateAndTime);
+        values.put (COLUMN_CAT_ITEMS_DATESEC, datesec);
         db.insert (TABLE_CAT_ITEMS, null, values);
         db.close();
     }
@@ -181,7 +196,9 @@ public class DbHelper extends SQLiteOpenHelper {
             int currentID = cursor.getInt(0);
             String currentName = cursor.getString(1);
             float currentCost = cursor.getFloat(3);
-            categoryItemsList.add(new CategoryItem(currentID, currentName, currentCost));
+            String currentDate = cursor.getString(4);
+            int currentDateSec = cursor.getInt(5);
+            categoryItemsList.add(new CategoryItem(currentID, currentName, currentCost, currentDate, currentDateSec));
         }
 
         cursor.close();
