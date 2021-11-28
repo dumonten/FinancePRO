@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:orientation="vertical"
@@ -23,16 +23,17 @@
             android:text="Вы уверены?"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="Категория будет удалена безвозвратно"
-            android:layout_gravity="center"
-            android:textColor="@color/light_gray"
-            android:textSize="16sp"/>
+            android:textColor="#757575"
+            android:textSize="15sp" />
 
         <LinearLayout
             android:layout_width="match_parent"

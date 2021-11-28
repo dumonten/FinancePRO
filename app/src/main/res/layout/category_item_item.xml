@@ -11,11 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/superLightgray"
+        android:background="@drawable/withshadow"
+        android:backgroundTint="@color/colorWhite"
+        android:elevation="6dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:gravity="center"
         android:text="Удалённое"
+        android:textAllCaps="false"
         android:textColor="@color/gray"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
 
     <Button

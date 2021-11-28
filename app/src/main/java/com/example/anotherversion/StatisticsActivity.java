@@ -6,10 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.anotherversion.model.Category;
@@ -94,20 +99,25 @@ public class StatisticsActivity extends AppCompatActivity {
     private void generateStats(long curDateSec, long date_lim, float allCost, float earningCost) {
         for (Category cur : CatList) {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.MATCH_PARENT
-            );
-            params.setMargins( 12, 15, 12, 15);
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            params.setMargins( 20, 0, 20, 0);
             Button button = new Button(this);
+            button.setBackgroundResource(R.drawable.withshadow);
             button.setLayoutParams(params);
+            Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Semibold.ttf");
+            button.setTypeface(typeface);
+            button.setElevation(6);
             button.setText(cur.getName());
-            button.setHeight(50);
-            button.setBackgroundColor(Color.parseColor("#fbad00"));
-            button.setTextColor(Color.parseColor("#FF000000"));
+            button.setGravity(Gravity.CENTER_HORIZONTAL);
+            button.setAllCaps(false);
+            button.setTextSize(16);
+            button.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+            button.setTextColor(Color.parseColor("#293133"));
             main_layout.addView(button);
 
             CatItemData = db.getCategoriesItems(cur.getId());
-            params.setMargins( 20, 5, 12, 5);
+            params.setMargins( 40, 20, 40, 20);
 
             boolean isNotEmpty = false;
             LinearLayout middle_layout = new LinearLayout(this);
@@ -118,6 +128,10 @@ public class StatisticsActivity extends AppCompatActivity {
                     TextView txt = new TextView(this);
                     txt.setText(key.getName() + ": " + key.getCost() + "p.");
                     txt.setLayoutParams(params);
+                    txt.setTextSize(16);
+                    txt.setTextColor(Color.BLACK);
+                    Typeface typeface1 = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Light.ttf");
+                    txt.setTypeface(typeface1);
                     middle_layout.addView(txt);
                     isNotEmpty = true;
                 };
@@ -125,6 +139,10 @@ public class StatisticsActivity extends AppCompatActivity {
             if (!isNotEmpty) {
                 TextView txt = new TextView(this);
                 txt.setText("Эта категория пуста" + " ");
+                txt.setTextSize(16);
+                txt.setTextColor(Color.BLACK);
+                Typeface typeface2 = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Light.ttf");
+                txt.setTypeface(typeface2);
                 txt.setLayoutParams(params);
                 middle_layout.addView(txt);
             }
@@ -135,12 +153,12 @@ public class StatisticsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (middle_layout.getVisibility() == View.GONE) {
                         middle_layout.setVisibility(View.VISIBLE);
-                        button.setBackgroundColor(Color.parseColor("#fdd67f"));
-                        button.setTextColor(Color.parseColor("#FFFFFFFF"));
+                        button.setBackgroundColor(Color.parseColor("#f2f2f2"));
+                        button.setTextColor(Color.parseColor("#757575"));
                     } else {
                         middle_layout.setVisibility(View.GONE);
-                        button.setBackgroundColor(Color.parseColor("#fbad00"));
-                        button.setTextColor(Color.parseColor("#FF000000"));
+                        button.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+                        button.setTextColor(Color.parseColor("#293133"));
                     }
                 }
             });
@@ -153,8 +171,14 @@ public class StatisticsActivity extends AppCompatActivity {
 
     private void addTextView(String s) {
         TextView txt = new TextView(this);
-        txt.setTextSize(18);
+        txt.setPadding(0,10,0,10);
+        txt.setTextSize(16);
+        txt.setGravity(Gravity.CENTER);
         txt.setText(s);
+        txt.setTextColor(Color.BLACK);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Light.ttf");
+        txt.setTypeface(typeface);
+        txt.setBackgroundResource(R.drawable.backforitem);
         txt.setTextColor(Color.BLACK);
         main_layout.addView(txt);
     }

@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/drawable/backforitem.xml" value="0.17432432432432432" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/drawable/dialogback.xml" value="0.15128205128205127" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/drawable/midrounded.xml" value="0.17432432432432432" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/drawable/withshadow.xml" value="0.17432432432432432" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_categories.xml" value="0.2" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_check_ans.xml" value="0.1743659420289855" />
-        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_control_questions.xml" value="0.264" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_control_questions.xml" value="0.152" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_create_password.xml" value="0.17291666666666666" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_diagram.xml" value="0.136" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_enter_password.xml" value="0.2" />
@@ -13,12 +17,12 @@
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_main.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_splash.xml" value="0.2" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/activity_statistics.xml" value="0.2" />
-        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/category_item.xml" value="0.11924119241192412" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/category_item.xml" value="0.2" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/category_item_item.xml" value="0.11924119241192412" />
-        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/category_page.xml" value="0.11924119241192412" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/category_page.xml" value="0.2" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/confirm_cat_add.xml" value="0.14628623188405798" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/confirm_cat_add_item.xml" value="0.11924119241192412" />
-        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/confirm_delete.xml" value="0.264" />
+        <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/confirm_delete.xml" value="0.2" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/confirm_exit.xml" value="0.264" />
         <entry key="..\:/Users/Anastasiya/Documents/GitHub/FinancePRO/app/src/main/res/layout/dialog_intervals.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Fito/AndroidStudioProjects/FinancePRO/app/src/main/res/layout/activity_categories.xml" value="0.25416666666666665" />

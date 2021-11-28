@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnExYes = (Button) confirm.findViewById(R.id.exitYes);
         btnExNo = (Button) confirm.findViewById(R.id.exitNo);
 
+
         btnStat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

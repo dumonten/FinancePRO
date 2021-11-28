@@ -24,21 +24,21 @@
 
             <Button
                 android:id="@+id/dBut"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/midrounded"
-                android:backgroundTint="@color/superLightgray"
+                android:background="@drawable/withshadow"
+                android:backgroundTint="@color/colorWhite"
                 android:elevation="6dp"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/open_sans_semibold"
                 android:gravity="center"
                 android:text="К диаграмме"
                 android:textAllCaps="false"
                 android:textColor="@color/gray"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:translationZ="4dp" />
 
         </LinearLayout>
