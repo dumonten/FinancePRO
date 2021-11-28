@@ -49,6 +49,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         Dialog confirm;
         confirm = new Dialog(holder.categoryBtn.getContext());
         confirm.setContentView(R.layout.confirm_delete);
+        ///////!!!!!!confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setCancelable(true);
         btnAddNo = confirm.findViewById(R.id.exitCatNo);
         btnAddYes = confirm.findViewById(R.id.exitCatYes);

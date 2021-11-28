@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_intervals);
         confirm.setContentView(R.layout.confirm_exit);
         confirm.setCancelable(false);
-
+        confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         btnStat = (Button) findViewById(R.id.toStatistics);
         btnCat = (Button) findViewById(R.id.toCategories);
         btnExit = (Button) findViewById(R.id.toExit);
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         btnDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "You've chosen 'Day'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
                 startActivity(intent);
             }
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         btnWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "You've chosen 'Week'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
                 startActivity(intent);
             }
@@ -63,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         btnMonth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "You've chosen 'Month'", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), StatisticsActivity.class);
                 startActivity(intent);
             }

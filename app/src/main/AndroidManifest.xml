@@ -10,32 +10,69 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Anotherversion">
         <activity
+<<<<<<< Updated upstream
+=======
+            android:name=".Introduction"
+            android:exported="false" />
+        <activity
+>>>>>>> Stashed changes
             android:name=".CategoryItemsPage"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AnotherversionWithActionVar" />
         <activity
             android:name=".CategoriesActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AnotherversionWithActionVar" />
         <activity
             android:name=".StatisticsActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AnotherversionWithActionVar" />
+<<<<<<< Updated upstream
         <activity android:name=".ControlQuestions" />
         <activity android:name=".CheckAns" />
         <activity android:name=".SplashActivity">
+=======
+        <activity
+            android:name=".ControlQuestions"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CheckAns"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
+>>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< Updated upstream
         <activity android:name=".EnterPassword" />
         <activity android:name=".CreatePassword" />
         <activity android:name=".MainActivity" />
+=======
+        <activity
+            android:name=".EnterPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreatePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+>>>>>>> Stashed changes
     </application>
 
 </manifest>

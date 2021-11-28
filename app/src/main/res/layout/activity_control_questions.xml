@@ -1,112 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".ControlQuestions">
 
-
-    <TextView
-        android:id="@+id/quest1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Main"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="monospace"
-        android:text="@string/quest1"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
-    <TextView
-        android:id="@+id/quest2"
-        android:layout_below="@id/etAns1"
-        android:layout_marginHorizontal="10dp"
-        android:textSize="15sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:fontFamily="monospace"
-        android:layout_width="match_parent"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"
-        android:text="@string/quest2" />
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:background="@drawable/header_bg"
+        android:padding="60dp"
+        >
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/quest3"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etAns2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="monospace"
-        android:text="@string/quest3"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="?actionBarSize"
+            android:fontFamily="@font/open_sans_extrabold"
+            android:gravity="center"
+            android:text="Контрольные вопросы"
+            android:textColor="@color/colorWhite"
+            android:textSize="28sp" />
 
-    <EditText
-        android:id="@+id/etAns1"
-        android:layout_below="@id/quest1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
-        android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:inputType="textPersonName"
-        android:hint="Ответ на контрольный вопрос" />
+        <TextView
+            android:id="@+id/quest1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:text="@string/quest1"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
 
-    <EditText
-        android:id="@+id/etAns2"
-        android:layout_below="@id/quest2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
-        android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:inputType="textPersonName"
-        android:hint="Ответ на контрольный вопрос" />
+        <EditText
+            android:id="@+id/etAns1"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/colorWhite"
+            android:fontFamily="@font/open_sans_semibold"
+            android:hint="Ответ на контрольный вопрос"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="17sp"
+            android:theme="@style/MyEditText" />
 
-    <EditText
-        android:id="@+id/etAns3"
-        android:layout_below="@id/quest3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="monospace"
-        android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:inputType="textPersonName"
-        android:hint="Ответ на контрольный вопрос" />
+        <TextView
+            android:id="@+id/quest2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:text="@string/quest2"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
 
+        <EditText
+            android:id="@+id/etAns2"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/colorWhite"
+            android:fontFamily="@font/open_sans_semibold"
+            android:hint="Ответ на контрольный вопрос"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="17sp"
+            android:theme="@style/MyEditText" />
 
-    <TextView
-        android:id="@+id/Main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
-        android:fontFamily="monospace"
-        android:text="Контрольный вопрос:"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/quest3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/open_sans_semibold"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:text="@string/quest3"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/etAns3"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/orange"
-        android:fontFamily="monospace"
-        android:textStyle="bold"
-        android:text="Продолжить"
-        android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/etAns3"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/colorWhite"
+            android:fontFamily="@font/open_sans_semibold"
+            android:hint="Ответ на контрольный вопрос"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="17sp"
+            android:theme="@style/MyEditText" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_corner_button"
+            android:backgroundTint="@color/colorWhite"
+            android:fontFamily="monospace"
+            android:elevation="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Продолжить"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.anotherversion.adapter.CategoryItemsAdapter;
 import com.example.anotherversion.model.CategoryItem;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CategoryItemsPage extends AppCompatActivity {
     private DbHelper db;
@@ -36,13 +38,14 @@ public class CategoryItemsPage extends AppCompatActivity {
 
         confirm = new Dialog(this);
         confirm.setContentView(R.layout.confirm_cat_add_item);
+        confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setCancelable(true);
-
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Категории");
         updateRecycleView();
 
         TextView nameTextView = findViewById(R.id.textViewCategoryItems);
         RecyclerView items = findViewById(R.id.RecyclerViewCategoryItems);
-        Button btnAdd = findViewById(R.id.cat_items_add);
+        FloatingActionButton btnAdd = findViewById(R.id.cat_items_add);
         Button btnAddNo = confirm.findViewById(R.id.exitCatNo);
         Button btnAddYes = confirm.findViewById(R.id.exitCatYes);
 

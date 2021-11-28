@@ -14,16 +14,15 @@ import android.widget.Toast;
 
 import com.example.anotherversion.adapter.CategoryAdapter;
 import com.example.anotherversion.model.Category;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 import java.util.Objects;
 
 public class CategoriesActivity extends AppCompatActivity {
 
-    Button btnAdd;
     Dialog confirm;
     private DbHelper db;
-
     RecyclerView categoryRecycler;
     CategoryAdapter categoryAdapter;
 
@@ -32,16 +31,16 @@ public class CategoriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
         db = new DbHelper(this);
-
         updateRecycleView();
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Категории");
 
         confirm = new Dialog(this);
         confirm.setContentView(R.layout.confirm_cat_add);
+        confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setCancelable(true);
 
-        Button btnAdd = findViewById(R.id.cat_add);
+        FloatingActionButton btnAdd = findViewById(R.id.cat_add);
         Button btnAddNo = confirm.findViewById(R.id.exitCatNo);
         Button btnAddYes = confirm.findViewById(R.id.exitCatYes);
 
