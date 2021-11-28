@@ -23,6 +23,7 @@ public class DiagramActivity extends AppCompatActivity {
     private List<Category> CatList;
     private List<CategoryItem> CatItemData;
     private PieChart pieChart;
+    private long curDateSec,date_lim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class DiagramActivity extends AppCompatActivity {
 
         db = new DbHelper(this);
         CatList = db.getCategories();
+        date_lim = getIntent().getLongExtra("limit",0);
+        curDateSec = getIntent().getLongExtra("curdata",0);
 
         pieChart = findViewById(R.id.pieCha);
         loadPieChartData();
@@ -67,14 +70,18 @@ public class DiagramActivity extends AppCompatActivity {
         for (Category cur : CatList) {
             CatItemData = db.getCategoriesItems(cur.getId());
             for (CategoryItem key : CatItemData) {
-                allCost += (long)(key.getCost() * 100);
+                if (curDateSec - 1000L * key.getDateSec() < date_lim) {
+                    allCost += (long)(key.getCost() * 100);
+                }
             }
         }
         for (Category cur : CatList) {
             long curCost = 0;
             CatItemData = db.getCategoriesItems(cur.getId());
             for (CategoryItem key : CatItemData) {
-                curCost += (long)(key.getCost() * 100);
+                if (curDateSec - 1000L * key.getDateSec() < date_lim) {
+                    curCost += (long)(key.getCost() * 100);
+                }
             }
             if (allCost != 0 && curCost != 0) entries.add(new PieEntry((float)curCost / (float)allCost, cur.getName()));
         }

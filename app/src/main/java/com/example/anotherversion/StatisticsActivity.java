@@ -36,7 +36,8 @@ public class StatisticsActivity extends AppCompatActivity {
     private List<CategoryItem> CatItemData;
     private LinearLayout main_layout;
     private Button DiagBut;
-    public int Itype;
+    private long curDateSec,date_lim;
+    private int Itype;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +51,13 @@ public class StatisticsActivity extends AppCompatActivity {
         main_layout = findViewById(R.id.LinStats);
 
         Date d = new Date();
-        long curDateSec = (long)d.getTime();
+        curDateSec = (long)d.getTime();
 
-        long date_lim = 0;
+        date_lim = 0;
         if (Itype == 1) {
-            date_lim = 86400000;
+            date_lim = 86400000L;
         } else if (Itype == 2) {
-            date_lim = 604800000;
+            date_lim = 604800000L;
         } else if (Itype == 3) {
             date_lim = 2678400000L;
         }
@@ -81,6 +82,8 @@ public class StatisticsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), DiagramActivity.class);
+                intent.putExtra("curdata", curDateSec);
+                intent.putExtra("limit", date_lim);
                 startActivity(intent);
             }
         });
