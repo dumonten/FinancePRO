@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         dialog = new Dialog(MainActivity.this);
         confirm = new Dialog(MainActivity.this);
         dialog.setContentView(R.layout.dialog_intervals);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setContentView(R.layout.confirm_exit);
+        confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setCancelable(false);
-
         btnStat = (Button) findViewById(R.id.toStatistics);
         btnCat = (Button) findViewById(R.id.toCategories);
         btnExit = (Button) findViewById(R.id.toExit);

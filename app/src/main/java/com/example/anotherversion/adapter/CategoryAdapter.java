@@ -3,19 +3,14 @@ package com.example.anotherversion.adapter;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.graphics.drawable.Drawable;
+import android.view.Window;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.anotherversion.CategoriesActivity;
 import com.example.anotherversion.CategoryItemsPage;
 import com.example.anotherversion.DbHelper;
 import com.example.anotherversion.R;
@@ -61,6 +56,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         Dialog confirm;
         confirm = new Dialog(holder.categoryBtn.getContext());
         confirm.setContentView(R.layout.confirm_delete);
+        //confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
         confirm.setCancelable(true);
         btnAddNo = confirm.findViewById(R.id.exitCatNo);
         btnAddYes = confirm.findViewById(R.id.exitCatYes);

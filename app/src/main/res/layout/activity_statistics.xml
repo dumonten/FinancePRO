@@ -11,7 +11,10 @@
         android:id="@+id/CatStats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:id="@+id/LinStats"
@@ -21,17 +24,24 @@
 
             <Button
                 android:id="@+id/dBut"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:text="К диаграмме"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_marginTop="2dp"
-                android:backgroundTint="@color/orange"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/midrounded"
+                android:backgroundTint="@color/superLightgray"
+                android:elevation="6dp"
                 android:fontFamily="monospace"
-                android:textStyle="bold"/>
+                android:gravity="center"
+                android:text="К диаграмме"
+                android:textAllCaps="false"
+                android:textColor="@color/gray"
+                android:textSize="20sp"
+                android:translationZ="4dp" />
 
-        </LinearLayout>>
+        </LinearLayout>
 
     </ScrollView>
 
