@@ -35,6 +35,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * The type Statistics activity.
+ */
 public class StatisticsActivity extends AppCompatActivity {
     private DbHelper db;
     private List<Category> CatList;
@@ -43,6 +46,9 @@ public class StatisticsActivity extends AppCompatActivity {
     private Button DiagBut;
     private long curDateMilsec,date_lim;
     private int Itype;
+    /**
+     * The D.
+     */
     Date d;
 
     @Override

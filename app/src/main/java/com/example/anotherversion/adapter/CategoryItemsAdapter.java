@@ -21,25 +21,62 @@ import com.example.anotherversion.model.CategoryItem;
 
 import java.util.List;
 
+/**
+ * The type Category items adapter.
+ */
 public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdapter.CategoryItemsViewHolder>{
 
+    /**
+     * The Context.
+     */
     Context context;
+    /**
+     * The Items.
+     */
     List<CategoryItem> items;
+    /**
+     * The Id.
+     */
     int id;
+    /**
+     * The Name.
+     */
     String name;
 
+    /**
+     * The interface On card click listener.
+     */
     public interface OnCardClickListener {
+        /**
+         * On card click.
+         *
+         * @param view     the view
+         * @param position the position
+         */
         void onCardClick(View view,  int position);
     }
 
     // создаем поле объекта-колбэка
     private static OnCardClickListener mListener;
 
-    // метод-сеттер для привязки колбэка к получателю событий
+    /**
+     * Sets on card click listener.
+     *
+     * @param listener the listener
+     */
+// метод-сеттер для привязки колбэка к получателю событий
     public void setOnCardClickListener(OnCardClickListener listener) {
         mListener = listener;
     }
 
+    /**
+     * Instantiates a new Category items adapter.
+     *
+     * @param context the context
+     * @param items   the items
+     * @param id      the id
+     * @param name    the name
+     */
     public CategoryItemsAdapter(Context context, List<CategoryItem> items, int id, String name) {
         this.context = context;
         this.items = items;
@@ -75,11 +112,25 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
         return items.size();
     }
 
+    /**
+     * The type Category items view holder.
+     */
     public static final class CategoryItemsViewHolder extends RecyclerView.ViewHolder {
 
+        /**
+         * The Btn.
+         */
         Button Btn;
+        /**
+         * The Delete btn.
+         */
         Button DeleteBtn;
 
+        /**
+         * Instantiates a new Category items view holder.
+         *
+         * @param itemView the item view
+         */
         public CategoryItemsViewHolder(@NonNull View itemView) {
             super(itemView);
             Btn = itemView.findViewById(R.id.cat_item_btn);

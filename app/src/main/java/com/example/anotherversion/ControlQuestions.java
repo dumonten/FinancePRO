@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * The type Control questions.
+ */
 public class ControlQuestions extends AppCompatActivity implements View.OnClickListener {
 
     private TextView quest1;

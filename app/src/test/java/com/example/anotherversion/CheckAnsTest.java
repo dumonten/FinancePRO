@@ -1,7 +1,7 @@
 package com.example.anotherversion;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+//import android.widget.LinearLayout;
+//import android.widget.TextView;
 
 import org.junit.Before;
 import org.junit.After;
@@ -14,10 +14,19 @@ import  com.example.anotherversion.MainActivity;
 import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
+
+/**
+ * The type Check ans test.
+ */
 @RunWith(RobolectricTestRunner.class)
 public class CheckAnsTest {
     private CheckAns activity;
 
+    /**
+     * Sets activity.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setActivity() throws Exception {
         activity = Robolectric.buildActivity(CheckAns.class)
@@ -25,6 +34,10 @@ public class CheckAnsTest {
                 .resume()
                 .get();
     }
+
+    /**
+     * Activity should not be null.
+     */
     @Test
     public void activityShouldNotBeNull(){
         Assert.assertNotNull(activity); }

@@ -20,12 +20,30 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The type Category items page.
+ */
 public class CategoryItemsPage extends AppCompatActivity implements CategoryItemsAdapter.OnCardClickListener {
     private DbHelper db;
+    /**
+     * The Confirm.
+     */
     Dialog confirm;
+    /**
+     * The Category items recycler.
+     */
     RecyclerView categoryItemsRecycler;
+    /**
+     * The Category items adapter.
+     */
     CategoryItemsAdapter categoryItemsAdapter;
+    /**
+     * The Id.
+     */
     public int id;
+    /**
+     * The Name.
+     */
     public String name;
 
     // метод, который получит события из нашего колбэка
@@ -103,6 +121,9 @@ public class CategoryItemsPage extends AppCompatActivity implements CategoryItem
         });
     }
 
+    /**
+     * Update recycle view.
+     */
     public void updateRecycleView()
     {
         List<CategoryItem> categoryItems = db.getCategoriesItems(id);

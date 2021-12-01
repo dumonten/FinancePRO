@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7a0aed149e4600dd845444623db58fc7/transformed/MPAndroidChart-v3.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a52ae9559a42de1288a52a3c84b681ca/transformed/MPAndroidChart-v3.1.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a52ae9559a42de1288a52a3c84b681ca/transformed/MPAndroidChart-v3.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a52ae9559a42de1288a52a3c84b681ca/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ace5e4fad7a86072605b8f1b2f5fe966/transformed/MPAndroidChart-v3.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ace5e4fad7a86072605b8f1b2f5fe966/transformed/MPAndroidChart-v3.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ace5e4fad7a86072605b8f1b2f5fe966/transformed/MPAndroidChart-v3.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.1.0/2cb6d9556dd436cc6af2434d861903323fab2e3c/MPAndroidChart-v3.1.0-javadoc.jar!/" />

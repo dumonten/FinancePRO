@@ -11,12 +11,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * The type Check ans.
+ */
 public class CheckAns extends AppCompatActivity implements View.OnClickListener {
     private TextView quest1,quest2,quest3;
     private Button btnNext;
     private EditText etAns1,etAns2,etAns3;
     private DbHelper db;
-    boolean ans1,ans2,ans3;
+    /**
+     * The Ans 1.
+     */
+    boolean ans1, /**
+     * The Ans 2.
+     */
+    ans2, /**
+     * The Ans 3.
+     */
+    ans3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

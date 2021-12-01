@@ -14,10 +14,17 @@ import  com.example.anotherversion.EnterPassword;
 import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
+
+/**
+ * The type Enter password test.
+ */
 @RunWith(RobolectricTestRunner.class)
 public class EnterPasswordTest{
     private EnterPassword activity;
 
+    /**
+     * Set activity.
+     */
     @Before
     public void setActivity(){
         activity = Robolectric.buildActivity(EnterPassword.class)
@@ -25,6 +32,10 @@ public class EnterPasswordTest{
                 .resume()
                 .get();
     }
+
+    /**
+     * Activity should not be null.
+     */
     @Test
     public void activityShouldNotBeNull(){
         Assert.assertNotNull(activity); }

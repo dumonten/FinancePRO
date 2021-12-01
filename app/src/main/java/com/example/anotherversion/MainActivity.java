@@ -15,10 +15,52 @@ import android.widget.Toast;
 
 import java.util.Date;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity {
-    Button btnStat, btnCat, btnExit, btnDay, btnWeek, btnMonth, btnExYes, btnExNo;
-    Dialog dialog, confirm;
-    ImageView imStat, imCategr, imExt;
+    /**
+     * The Btn stat.
+     */
+    Button btnStat, /**
+     * The Btn cat.
+     */
+    btnCat, /**
+     * The Btn exit.
+     */
+    btnExit, /**
+     * The Btn day.
+     */
+    btnDay, /**
+     * The Btn week.
+     */
+    btnWeek, /**
+     * The Btn month.
+     */
+    btnMonth, /**
+     * The Btn ex yes.
+     */
+    btnExYes, /**
+     * The Btn ex no.
+     */
+    btnExNo;
+    /**
+     * The Dialog.
+     */
+    Dialog dialog, /**
+     * The Confirm.
+     */
+    confirm;
+    /**
+     * The Im stat.
+     */
+    ImageView imStat, /**
+     * The Im categr.
+     */
+    imCategr, /**
+     * The Im ext.
+     */
+    imExt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

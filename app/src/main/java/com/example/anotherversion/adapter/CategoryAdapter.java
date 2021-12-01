@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.anotherversion.CategoryItemsPage;
 import com.example.anotherversion.DbHelper;
@@ -18,24 +19,56 @@ import com.example.anotherversion.model.Category;
 
 import java.util.List;
 
+/**
+ * The type Category adapter.
+ */
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>{
 
+    /**
+     * The Context.
+     */
     Context context;
+    /**
+     * The Categories.
+     */
     List<Category> categories;
+    /**
+     * The Confirm.
+     */
     Dialog confirm;
 
+    /**
+     * The interface On card click listener.
+     */
     public interface OnCardClickListener {
+        /**
+         * On card click.
+         *
+         * @param view     the view
+         * @param position the position
+         */
         void onCardClick(View view,  int position);
     }
 
     // создаем поле объекта-колбэка
     private static CategoryAdapter.OnCardClickListener mListener;
 
-    // метод-сеттер для привязки колбэка к получателю событий
+    /**
+     * Sets on card click listener.
+     *
+     * @param listener the listener
+     */
+// метод-сеттер для привязки колбэка к получателю событий
     public void setOnCardClickListener(CategoryAdapter.OnCardClickListener listener) {
         mListener = listener;
     }
 
+    /**
+     * Instantiates a new Category adapter.
+     *
+     * @param context    the context
+     * @param categories the categories
+     */
     public CategoryAdapter(Context context, List<Category> categories) {
         this.context = context;
         this.categories = categories;
@@ -109,11 +142,25 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return categories.size();
     }
 
+    /**
+     * The type Category view holder.
+     */
     public static final class CategoryViewHolder extends RecyclerView.ViewHolder {
 
+        /**
+         * The Category btn.
+         */
         Button categoryBtn;
+        /**
+         * The Category btn delete.
+         */
         Button categoryBtnDelete;
 
+        /**
+         * Instantiates a new Category view holder.
+         *
+         * @param itemView the item view
+         */
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             categoryBtn = itemView.findViewById(R.id.cat_item_btn);
@@ -122,5 +169,21 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
 
     }
+
+    /**
+     * The Item touch helper call back.
+     */
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallBack = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT| ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            categories.remove(viewHolder.getAdapterPosition());
+            viewHolder.notify();
+        }
+    };
 
 }

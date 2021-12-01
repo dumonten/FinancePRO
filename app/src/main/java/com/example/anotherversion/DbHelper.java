@@ -16,40 +16,103 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * The type Db helper.
+ */
 public class DbHelper extends SQLiteOpenHelper {
 
+    /**
+     * The constant TAG.
+     */
     /* Main Settings */
     public static final String TAG = DbHelper.class.getSimpleName();
+    /**
+     * The constant DB_NAME.
+     */
     public static final String DB_NAME = "main.db";
+    /**
+     * The constant DB_VERSION.
+     */
     public static final int DB_VERSION = 3;
     /* ============= */
 
+    /**
+     * The constant USER_ANS.
+     */
     /* Tables */
     // Pass anasteisha 50 оттенков grey (⌒‿⌒)
     public static final String USER_ANS ="ans";
+    /**
+     * The constant COLUMN_ID.
+     */
     public static final String COLUMN_ID = "_id";
+    /**
+     * The constant COLUMN_ANS.
+     */
     public static final String COLUMN_ANS ="answers";
+    /**
+     * The constant COLUMN_QUES.
+     */
     public static final String COLUMN_QUES ="questions";
+    /**
+     * The constant CREATE_TABLE_ANS.
+     */
     public static final String CREATE_TABLE_ANS = "CREATE TABLE `" + USER_ANS + "` (`"
             + COLUMN_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
             + COLUMN_ANS + "` TEXT, `"
             + COLUMN_QUES + "` TEXT);";
 
-    // Categories romchonsh
+    /**
+     * The constant TABLE_CAT.
+     */
+// Categories romchonsh
     public static final String TABLE_CAT ="cat";
+    /**
+     * The constant COLUMN_CAT_ID.
+     */
     public static final String COLUMN_CAT_ID = "_id";
+    /**
+     * The constant COLUMN_CAT_NAME.
+     */
     public static final String COLUMN_CAT_NAME ="cat_name";
+    /**
+     * The constant CREATE_TABLE_CAT.
+     */
     public static final String CREATE_TABLE_CAT = "CREATE TABLE `" + TABLE_CAT + "` (`"
             + COLUMN_CAT_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
             + COLUMN_CAT_NAME + "` TEXT);";
 
+    /**
+     * The constant TABLE_CAT_ITEMS.
+     */
     public static final String TABLE_CAT_ITEMS ="cat_items";
+    /**
+     * The constant COLUMN_CAT_ITEMS_ID.
+     */
     public static final String COLUMN_CAT_ITEMS_ID = "_id";
+    /**
+     * The constant COLUMN_CAT_ITEMS_CAT_ID.
+     */
     public static final String COLUMN_CAT_ITEMS_CAT_ID = "cat_id";
+    /**
+     * The constant COLUMN_CAT_ITEMS_NAME.
+     */
     public static final String COLUMN_CAT_ITEMS_NAME ="cat_item_name";
+    /**
+     * The constant COLUMN_CAT_ITEMS_COST.
+     */
     public static final String COLUMN_CAT_ITEMS_COST ="cat_item_cost";
+    /**
+     * The constant COLUMN_CAT_ITEMS_DATE.
+     */
     public static final String COLUMN_CAT_ITEMS_DATE ="cat_item_date";
+    /**
+     * The constant COLUMN_CAT_ITEMS_DATESEC.
+     */
     public static final String COLUMN_CAT_ITEMS_DATESEC ="cat_item_date_sec";
+    /**
+     * The constant CREATE_TABLE_CAT_ITEMS.
+     */
     public static final String CREATE_TABLE_CAT_ITEMS = "CREATE TABLE `" + TABLE_CAT_ITEMS + "` (`"
             + COLUMN_CAT_ITEMS_ID + "` INTEGER PRIMARY KEY AUTOINCREMENT, `"
             + COLUMN_CAT_ITEMS_NAME + "` TEXT, `"
@@ -60,6 +123,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /* ================== */
 
+    /**
+     * Instantiates a new Db helper.
+     *
+     * @param context the context
+     */
     public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -84,6 +152,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /* Categories romchonsh */
 
+    /**
+     * Add cat hardcoded.
+     *
+     * @param db   the db
+     * @param name the name
+     */
     public  void addCatHardcoded(SQLiteDatabase db, String name)
     {
         ContentValues values = new ContentValues();
@@ -91,6 +165,11 @@ public class DbHelper extends SQLiteOpenHelper {
         db.insert (TABLE_CAT, null, values);
     }
 
+    /**
+     * Add cat.
+     *
+     * @param name the name
+     */
     public void addCat(String name)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -100,6 +179,11 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Delete cat.
+     *
+     * @param id the id
+     */
     public void deleteCat(int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -111,6 +195,14 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Add cat item.
+     *
+     * @param name          the name
+     * @param cost          the cost
+     * @param id            the id
+     * @param curDateMilsec the cur date milsec
+     */
     public void addCatItem(String name, float cost, int id, long curDateMilsec)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -127,6 +219,11 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Delete cat item.
+     *
+     * @param id the id
+     */
     public void deleteCatItem(int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -135,6 +232,12 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Check exists cat boolean.
+     *
+     * @param name the name
+     * @return the boolean
+     */
     public boolean checkExistsCat(String name)
     {
         String selectQuery = "SELECT * FROM `" + TABLE_CAT + "` WHERE `" + COLUMN_CAT_NAME + "` = '" + name + "'";
@@ -150,6 +253,11 @@ public class DbHelper extends SQLiteOpenHelper {
         return  false;
     }
 
+    /**
+     * Gets categories.
+     *
+     * @return the categories
+     */
     public List getCategories()
     {
         List<Category> categoryList = new ArrayList<>();
@@ -171,6 +279,12 @@ public class DbHelper extends SQLiteOpenHelper {
         return categoryList;
     }
 
+    /**
+     * Gets categories items.
+     *
+     * @param id_search the id search
+     * @return the categories items
+     */
     public List getCategoriesItems(int id_search)
     {
         List<CategoryItem> categoryItemsList = new ArrayList<>();
@@ -197,6 +311,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     /* ================== */
 
+    /**
+     * Add answers.
+     *
+     * @param questions the questions
+     * @param answers   the answers
+     */
     public void addAnswers (String questions, String answers){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -207,6 +327,12 @@ public class DbHelper extends SQLiteOpenHelper {
         Log.d (TAG, "answered questions - "+id+answers);
     }
 
+    /**
+     * Get answers boolean.
+     *
+     * @param answers the answers
+     * @return the boolean
+     */
     public boolean getAnswers (String answers){
         String selectQuery = "select * from  " + USER_ANS + " where "+ COLUMN_ANS + " = " +
                 "'"+answers+"'";

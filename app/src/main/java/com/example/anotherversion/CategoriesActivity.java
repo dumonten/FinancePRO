@@ -1,6 +1,8 @@
 package com.example.anotherversion;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,15 +23,28 @@ import java.util.Objects;
 
 /**
  * kdsjgkjkj
+ *
  * @author Roman
  */
 public class CategoriesActivity extends AppCompatActivity implements CategoryAdapter.OnCardClickListener {
 
+    /**
+     * The Btn add.
+     */
     Button btnAdd;
+    /**
+     * The Confirm.
+     */
     Dialog confirm;
     private DbHelper db;
 
+    /**
+     * The Category recycler.
+     */
     RecyclerView categoryRecycler;
+    /**
+     * The Category adapter.
+     */
     CategoryAdapter categoryAdapter;
 
     // метод, который получит события из нашего колбэка
@@ -105,6 +120,9 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryAda
         });
     }
 
+    /**
+     * Update recycle view.
+     */
     public void updateRecycleView()
     {
         List<Category> categoryList = db.getCategories();

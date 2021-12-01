@@ -10,10 +10,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * The type Enter password.
+ */
 public class EnterPassword extends AppCompatActivity {
+    /**
+     * The Btn enter.
+     */
     Button btnEnter;
+    /**
+     * The Et pass.
+     */
     EditText etPass;
+    /**
+     * The Password.
+     */
     String password;
+    /**
+     * The Clickcount.
+     */
     int clickcount =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,9 +12,21 @@ import android.widget.Toast;
 
 import java.sql.DataTruncation;
 
+/**
+ * The type Create password.
+ */
 public class CreatePassword extends AppCompatActivity {
-        EditText etPass1,etPass2;
-        Button btnCreate;
+    /**
+     * The Et pass 1.
+     */
+    EditText etPass1, /**
+     * The Et pass 2.
+     */
+    etPass2;
+    /**
+     * The Btn create.
+     */
+    Button btnCreate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

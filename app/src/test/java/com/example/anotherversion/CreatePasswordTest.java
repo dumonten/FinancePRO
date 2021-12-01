@@ -14,10 +14,19 @@ import  com.example.anotherversion.MainActivity;
 import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
+
+/**
+ * The type Create password test.
+ */
 @RunWith(RobolectricTestRunner.class)
 public class CreatePasswordTest {
     private CreatePassword activity;
 
+    /**
+     * Sets activity.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setActivity() throws Exception {
         activity = Robolectric.buildActivity(CreatePassword.class)
@@ -25,6 +34,10 @@ public class CreatePasswordTest {
                 .resume()
                 .get();
     }
+
+    /**
+     * Activity should not be null.
+     */
     @Test
     public void activityShouldNotBeNull(){
         Assert.assertNotNull(activity); }

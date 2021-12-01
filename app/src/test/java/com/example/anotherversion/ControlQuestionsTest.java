@@ -14,10 +14,19 @@ import  com.example.anotherversion.MainActivity;
 import org.testng.Assert;
 
 import static org.junit.Assert.assertEquals;
+
+/**
+ * The type Control questions test.
+ */
 @RunWith(RobolectricTestRunner.class)
 public class ControlQuestionsTest {
     private ControlQuestions activity;
 
+    /**
+     * Sets activity.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setActivity() throws Exception {
         activity = Robolectric.buildActivity(ControlQuestions.class)
@@ -25,6 +34,10 @@ public class ControlQuestionsTest {
                 .resume()
                 .get();
     }
+
+    /**
+     * Activity should not be null.
+     */
     @Test
     public void activityShouldNotBeNull(){
         Assert.assertNotNull(activity); }

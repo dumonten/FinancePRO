@@ -11,10 +11,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * The type Splash activity.
+ */
 public class SplashActivity extends AppCompatActivity {
     private String password;
     private static int SPLASH = 1000;
     private ImageView logoIm;
+    /**
+     * The Animation.
+     */
     Animation animation;
 
     @Override

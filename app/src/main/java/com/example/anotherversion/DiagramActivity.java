@@ -18,6 +18,9 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Diagram activity.
+ */
 public class DiagramActivity extends AppCompatActivity {
     private DbHelper db;
     private List<Category> CatList;
