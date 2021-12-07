@@ -1,21 +1,16 @@
 package com.example.anotherversion.adapter;
 
+import static androidx.core.content.ContextCompat.getDrawable;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.anotherversion.CategoriesActivity;
 import com.example.anotherversion.CategoryItemsPage;
 import com.example.anotherversion.DbHelper;
 import com.example.anotherversion.R;
@@ -27,6 +22,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     Context context;
     List<Category> categories;
+    Dialog confirm;
 
     public interface OnCardClickListener {
         void onCardClick(View view,  int position);
@@ -58,9 +54,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         Button btnAddNo;
         Button btnAddYes;
-        Dialog confirm;
         confirm = new Dialog(holder.categoryBtn.getContext());
         confirm.setContentView(R.layout.confirm_delete);
+        confirm.getWindow().setBackgroundDrawable(getDrawable(confirm.getContext(), R.drawable.dialogback));
         confirm.setCancelable(true);
         btnAddNo = confirm.findViewById(R.id.exitCatNo);
         btnAddYes = confirm.findViewById(R.id.exitCatYes);

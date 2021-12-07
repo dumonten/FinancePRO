@@ -14,10 +14,15 @@ import android.widget.Toast;
 
 import com.example.anotherversion.adapter.CategoryAdapter;
 import com.example.anotherversion.model.Category;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * kdsjgkjkj
+ * @author Roman
+ */
 public class CategoriesActivity extends AppCompatActivity implements CategoryAdapter.OnCardClickListener {
 
     Button btnAdd;
@@ -46,8 +51,9 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryAda
         confirm = new Dialog(this);
         confirm.setContentView(R.layout.confirm_cat_add);
         confirm.setCancelable(true);
+        confirm.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialogback));
 
-        Button btnAdd = findViewById(R.id.cat_add);
+        FloatingActionButton btnAdd = findViewById(R.id.cat_add);
         Button btnAddNo = confirm.findViewById(R.id.exitCatNo);
         Button btnAddYes = confirm.findViewById(R.id.exitCatYes);
 

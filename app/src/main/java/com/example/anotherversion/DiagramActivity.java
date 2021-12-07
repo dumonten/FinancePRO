@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+
 import com.example.anotherversion.model.Category;
 import com.example.anotherversion.model.CategoryItem;
 import com.github.mikephil.charting.charts.PieChart;
@@ -57,7 +58,7 @@ public class DiagramActivity extends AppCompatActivity {
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
         l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
         l.setDrawInside(false);
-        l.setFormSize(12f);
+        l.setFormSize(16f);
         l.setEnabled(true);
 
         pieChart.getLegend().setWordWrapEnabled(true);
@@ -84,7 +85,7 @@ public class DiagramActivity extends AppCompatActivity {
             }
             if (allCost != 0 && curCost != 0) entries.add(new PieEntry((float)curCost / (float)allCost, cur.getName()));
         }
-
+        //
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
             colors.add(color);
@@ -99,7 +100,7 @@ public class DiagramActivity extends AppCompatActivity {
         PieData data = new PieData(dataSet);
         data.setDrawValues(true);
         data.setValueFormatter(new PercentFormatter(pieChart));
-        data.setValueTextSize(10f);
+        data.setValueTextSize(16f);
         data.setValueTextColor(Color.BLACK);
 
         pieChart.setData(data);

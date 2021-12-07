@@ -157,7 +157,9 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
+
         while (cursor.moveToNext()) {
+
             int currentID = cursor.getInt(0);
             String currentName = cursor.getString(1);
             categoryList.add(new Category(currentID, currentName));
@@ -175,8 +177,10 @@ public class DbHelper extends SQLiteOpenHelper {
         String selectQuery = "SELECT * FROM `" + TABLE_CAT_ITEMS + "` WHERE `" + COLUMN_CAT_ITEMS_CAT_ID + "` = '" + id_search + "'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
+
         
         while (cursor.moveToNext()) {
+
             int currentID = cursor.getInt(0);
             String currentName = cursor.getString(1);
             float currentCost = cursor.getFloat(3);
