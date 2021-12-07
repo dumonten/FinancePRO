@@ -6,27 +6,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
     private String password;
     private static int SPLASH = 1000;
-    private ImageView logoIm;
-    Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        logoIm = findViewById(R.id.logoIm);
 
         SharedPreferences pref = getSharedPreferences("prefs", 0);
         password = pref.getString("password", "");
-        //animation = AnimationUtils.loadAnimation(this, R.anim.animation);
-        //logoIm.setAnimation(animation);
         Handler handler = new Handler();
         handler.postDelayed (new Runnable() {
             @Override

@@ -73,9 +73,11 @@ public class StatisticsActivity extends AppCompatActivity {
         for (Category cur : CatList) {
             CatItemData = db.getCategoriesItems(cur.getId());
             for (CategoryItem key : CatItemData) {
-                allCost += (long)(key.getCost() * 100);
-                if (cur.getId() == 1) {
-                    earningsCost += (long)(key.getCost() * 100);
+                if (curDateMilsec - key.getDateSec() < date_lim) {
+                    allCost += (long) (key.getCost() * 100);
+                    if (cur.getId() == 1) {
+                        earningsCost += (long) (key.getCost() * 100);
+                    }
                 }
             }
         }
