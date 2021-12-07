@@ -3,7 +3,8 @@
     package="com.example.anotherversion">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
+        android:usesCleartextTraffic="true"
         android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
