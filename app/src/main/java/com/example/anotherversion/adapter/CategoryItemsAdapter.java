@@ -68,6 +68,8 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
                 mListener.onCardClick(v, holder.getAdapterPosition());
             }
         });
+
+        db.close();
     }
 
     @Override

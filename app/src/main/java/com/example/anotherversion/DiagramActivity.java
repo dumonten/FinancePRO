@@ -85,7 +85,7 @@ public class DiagramActivity extends AppCompatActivity {
             }
             if (allCost != 0 && curCost != 0) entries.add(new PieEntry((float)curCost / (float)allCost, cur.getName()));
         }
-        //
+
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
             colors.add(color);

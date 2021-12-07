@@ -102,6 +102,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 mListener.onCardClick(v, holder.getAdapterPosition());
             }
         });
+
+        db.close();
     }
 
     @Override
