@@ -35,7 +35,7 @@ public class CreatePassword extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Вы не ввели пароль!",Toast.LENGTH_SHORT).show();
 
                 } else if (edit1.equals(edit2)) {
-                    SharedPreferences pref = getSharedPreferences("prefs",0);
+                    SharedPreferences pref = getSharedPreferences("prefs", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("password", edit1);
                     editor.apply();

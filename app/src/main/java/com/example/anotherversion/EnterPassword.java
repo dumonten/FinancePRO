@@ -30,7 +30,7 @@ public class EnterPassword extends AppCompatActivity {
         setContentView(R.layout.activity_enter_password);
         btnEnter = (Button) findViewById(R.id.btnEnter);
         etPass = (EditText) findViewById(R.id.etPass);
-        SharedPreferences pref = getSharedPreferences("prefs", 0);
+        SharedPreferences pref = getSharedPreferences("prefs", MODE_PRIVATE);
         password = pref.getString("password", "");
         btnEnter.setOnClickListener(new View.OnClickListener() {
 

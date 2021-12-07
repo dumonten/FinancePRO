@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        SharedPreferences pref = getSharedPreferences("prefs", 0);
+        SharedPreferences pref = getSharedPreferences("prefs", MODE_PRIVATE);
         password = pref.getString("password", "");
         Handler handler = new Handler();
         handler.postDelayed (new Runnable() {
